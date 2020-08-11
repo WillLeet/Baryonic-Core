@@ -1,0 +1,695 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AD21B32A248995AE0092B5A7 /* PC_Basic_Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21B329248995AE0092B5A7 /* PC_Basic_Bullet.swift */; };
+		AD5708EA2433D46600EB4C5C /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5708E92433D46600EB4C5C /* Wall.swift */; };
+		ADADD38723EDB8D1005582CB /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADD38623EDB8D1005582CB /* Enemy.swift */; };
+		ADC61C9E23E718FB00A3EDF1 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61C9D23E718FA00A3EDF1 /* Bullet.swift */; };
+		ADC61CA023E86FF000A3EDF1 /* Firing_Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61C9F23E86FF000A3EDF1 /* Firing_Functions.swift */; };
+		ADC61CA223E89DB500A3EDF1 /* Red_Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61CA123E89DB500A3EDF1 /* Red_Target.swift */; };
+		ADC61CAE23E8F69400A3EDF1 /* Enemy_Behaviors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61CAD23E8F69400A3EDF1 /* Enemy_Behaviors.swift */; };
+		ADCA3B8E23DFD185000B22B5 /* Joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA3B8D23DFD185000B22B5 /* Joystick.swift */; };
+		ADCA3B9023DFDC05000B22B5 /* Player_Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA3B8F23DFDC05000B22B5 /* Player_Character.swift */; };
+		ADE02B7724A7CEB500609E94 /* Gate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE02B7624A7CEB400609E94 /* Gate.swift */; };
+		ADE701EE248AAB0B0016592A /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE701ED248AAB0B0016592A /* Weapon.swift */; };
+		ADE701F0248D8FA20016592A /* Starting_Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE701EF248D8FA20016592A /* Starting_Weapon.swift */; };
+		ADE701F2248DC8280016592A /* Basic_Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE701F1248DC8280016592A /* Basic_Enemy.swift */; };
+		ADE701F5248EA90A0016592A /* Enemy_Pistol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE701F4248EA90A0016592A /* Enemy_Pistol.swift */; };
+		ADE701F7248EA9A90016592A /* Enemy_Basic_Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE701F6248EA9A90016592A /* Enemy_Basic_Bullet.swift */; };
+		ADEBC1F023CCCB96004332C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEBC1EF23CCCB96004332C9 /* AppDelegate.swift */; };
+		ADEBC1F223CCCB96004332C9 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = ADEBC1F123CCCB96004332C9 /* GameScene.sks */; };
+		ADEBC1F423CCCB96004332C9 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = ADEBC1F323CCCB96004332C9 /* Actions.sks */; };
+		ADEBC1F623CCCB96004332C9 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEBC1F523CCCB96004332C9 /* GameScene.swift */; };
+		ADEBC1F823CCCB96004332C9 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEBC1F723CCCB96004332C9 /* GameViewController.swift */; };
+		ADEBC1FB23CCCB96004332C9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEBC1F923CCCB96004332C9 /* Main.storyboard */; };
+		ADEBC1FD23CCCB9C004332C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ADEBC1FC23CCCB9C004332C9 /* Assets.xcassets */; };
+		ADEBC20023CCCB9C004332C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ADEBC1FE23CCCB9C004332C9 /* LaunchScreen.storyboard */; };
+		ADEBC20B23CCCB9C004332C9 /* TwinStick_ShooterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEBC20A23CCCB9C004332C9 /* TwinStick_ShooterTests.swift */; };
+		ADEBC21623CCCB9C004332C9 /* TwinStick_ShooterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADEBC21523CCCB9C004332C9 /* TwinStick_ShooterUITests.swift */; };
+		ADFAA4C024DDE2D300B322F7 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADFAA4BF24DDE2D300B322F7 /* MapView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		ADEBC20723CCCB9C004332C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADEBC1E423CCCB95004332C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ADEBC1EB23CCCB95004332C9;
+			remoteInfo = TwinStick_Shooter;
+		};
+		ADEBC21223CCCB9C004332C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ADEBC1E423CCCB95004332C9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ADEBC1EB23CCCB95004332C9;
+			remoteInfo = TwinStick_Shooter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		AD21B329248995AE0092B5A7 /* PC_Basic_Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PC_Basic_Bullet.swift; sourceTree = "<group>"; };
+		AD5708E92433D46600EB4C5C /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
+		ADADD38623EDB8D1005582CB /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
+		ADC61C9D23E718FA00A3EDF1 /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
+		ADC61C9F23E86FF000A3EDF1 /* Firing_Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firing_Functions.swift; sourceTree = "<group>"; };
+		ADC61CA123E89DB500A3EDF1 /* Red_Target.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Red_Target.swift; sourceTree = "<group>"; };
+		ADC61CAD23E8F69400A3EDF1 /* Enemy_Behaviors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_Behaviors.swift; sourceTree = "<group>"; };
+		ADCA3B8D23DFD185000B22B5 /* Joystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joystick.swift; sourceTree = "<group>"; };
+		ADCA3B8F23DFDC05000B22B5 /* Player_Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player_Character.swift; sourceTree = "<group>"; };
+		ADE02B7624A7CEB400609E94 /* Gate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gate.swift; sourceTree = "<group>"; };
+		ADE701ED248AAB0B0016592A /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
+		ADE701EF248D8FA20016592A /* Starting_Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Starting_Weapon.swift; sourceTree = "<group>"; };
+		ADE701F1248DC8280016592A /* Basic_Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basic_Enemy.swift; sourceTree = "<group>"; };
+		ADE701F4248EA90A0016592A /* Enemy_Pistol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_Pistol.swift; sourceTree = "<group>"; };
+		ADE701F6248EA9A90016592A /* Enemy_Basic_Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_Basic_Bullet.swift; sourceTree = "<group>"; };
+		ADEBC1EC23CCCB96004332C9 /* TwinStick_Shooter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwinStick_Shooter.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADEBC1EF23CCCB96004332C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		ADEBC1F123CCCB96004332C9 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		ADEBC1F323CCCB96004332C9 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		ADEBC1F523CCCB96004332C9 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		ADEBC1F723CCCB96004332C9 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		ADEBC1FA23CCCB96004332C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		ADEBC1FC23CCCB9C004332C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		ADEBC1FF23CCCB9C004332C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		ADEBC20123CCCB9C004332C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADEBC20623CCCB9C004332C9 /* TwinStick_ShooterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwinStick_ShooterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADEBC20A23CCCB9C004332C9 /* TwinStick_ShooterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwinStick_ShooterTests.swift; sourceTree = "<group>"; };
+		ADEBC20C23CCCB9C004332C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADEBC21123CCCB9C004332C9 /* TwinStick_ShooterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TwinStick_ShooterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ADEBC21523CCCB9C004332C9 /* TwinStick_ShooterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwinStick_ShooterUITests.swift; sourceTree = "<group>"; };
+		ADEBC21723CCCB9C004332C9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ADFAA4BF24DDE2D300B322F7 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		ADEBC1E923CCCB95004332C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADEBC20323CCCB9C004332C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADEBC20E23CCCB9C004332C9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		ADC61CA923E8B31B00A3EDF1 /* PC_Code */ = {
+			isa = PBXGroup;
+			children = (
+				ADCA3B8F23DFDC05000B22B5 /* Player_Character.swift */,
+				ADCA3B8D23DFD185000B22B5 /* Joystick.swift */,
+				AD21B329248995AE0092B5A7 /* PC_Basic_Bullet.swift */,
+				ADE701EF248D8FA20016592A /* Starting_Weapon.swift */,
+			);
+			name = PC_Code;
+			sourceTree = "<group>";
+		};
+		ADC61CAB23E8B34E00A3EDF1 /* Enemy_Code */ = {
+			isa = PBXGroup;
+			children = (
+				ADC61CA123E89DB500A3EDF1 /* Red_Target.swift */,
+				ADADD38623EDB8D1005582CB /* Enemy.swift */,
+				ADC61CAD23E8F69400A3EDF1 /* Enemy_Behaviors.swift */,
+				ADE701F1248DC8280016592A /* Basic_Enemy.swift */,
+				ADE701F3248EA8D80016592A /* Enemy_Weapons */,
+			);
+			name = Enemy_Code;
+			sourceTree = "<group>";
+		};
+		ADC61CAC23E8B35E00A3EDF1 /* Misc_Code */ = {
+			isa = PBXGroup;
+			children = (
+				ADC61C9D23E718FA00A3EDF1 /* Bullet.swift */,
+				ADC61C9F23E86FF000A3EDF1 /* Firing_Functions.swift */,
+				AD5708E92433D46600EB4C5C /* Wall.swift */,
+				ADE02B7624A7CEB400609E94 /* Gate.swift */,
+				ADE701ED248AAB0B0016592A /* Weapon.swift */,
+			);
+			name = Misc_Code;
+			sourceTree = "<group>";
+		};
+		ADE701F3248EA8D80016592A /* Enemy_Weapons */ = {
+			isa = PBXGroup;
+			children = (
+				ADE701F4248EA90A0016592A /* Enemy_Pistol.swift */,
+				ADE701F6248EA9A90016592A /* Enemy_Basic_Bullet.swift */,
+			);
+			name = Enemy_Weapons;
+			sourceTree = "<group>";
+		};
+		ADEBC1E323CCCB95004332C9 = {
+			isa = PBXGroup;
+			children = (
+				ADEBC1EE23CCCB96004332C9 /* TwinStick_Shooter */,
+				ADEBC20923CCCB9C004332C9 /* TwinStick_ShooterTests */,
+				ADEBC21423CCCB9C004332C9 /* TwinStick_ShooterUITests */,
+				ADEBC1ED23CCCB96004332C9 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		ADEBC1ED23CCCB96004332C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				ADEBC1EC23CCCB96004332C9 /* TwinStick_Shooter.app */,
+				ADEBC20623CCCB9C004332C9 /* TwinStick_ShooterTests.xctest */,
+				ADEBC21123CCCB9C004332C9 /* TwinStick_ShooterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ADEBC1EE23CCCB96004332C9 /* TwinStick_Shooter */ = {
+			isa = PBXGroup;
+			children = (
+				ADEBC1EF23CCCB96004332C9 /* AppDelegate.swift */,
+				ADEBC1F123CCCB96004332C9 /* GameScene.sks */,
+				ADEBC1F323CCCB96004332C9 /* Actions.sks */,
+				ADC61CA923E8B31B00A3EDF1 /* PC_Code */,
+				ADC61CAC23E8B35E00A3EDF1 /* Misc_Code */,
+				ADC61CAB23E8B34E00A3EDF1 /* Enemy_Code */,
+				ADEBC1F523CCCB96004332C9 /* GameScene.swift */,
+				ADEBC1F723CCCB96004332C9 /* GameViewController.swift */,
+				ADFAA4BF24DDE2D300B322F7 /* MapView.swift */,
+				ADEBC1F923CCCB96004332C9 /* Main.storyboard */,
+				ADEBC1FC23CCCB9C004332C9 /* Assets.xcassets */,
+				ADEBC1FE23CCCB9C004332C9 /* LaunchScreen.storyboard */,
+				ADEBC20123CCCB9C004332C9 /* Info.plist */,
+			);
+			path = TwinStick_Shooter;
+			sourceTree = "<group>";
+		};
+		ADEBC20923CCCB9C004332C9 /* TwinStick_ShooterTests */ = {
+			isa = PBXGroup;
+			children = (
+				ADEBC20A23CCCB9C004332C9 /* TwinStick_ShooterTests.swift */,
+				ADEBC20C23CCCB9C004332C9 /* Info.plist */,
+			);
+			path = TwinStick_ShooterTests;
+			sourceTree = "<group>";
+		};
+		ADEBC21423CCCB9C004332C9 /* TwinStick_ShooterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				ADEBC21523CCCB9C004332C9 /* TwinStick_ShooterUITests.swift */,
+				ADEBC21723CCCB9C004332C9 /* Info.plist */,
+			);
+			path = TwinStick_ShooterUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ADEBC1EB23CCCB95004332C9 /* TwinStick_Shooter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ADEBC21A23CCCB9C004332C9 /* Build configuration list for PBXNativeTarget "TwinStick_Shooter" */;
+			buildPhases = (
+				ADEBC1E823CCCB95004332C9 /* Sources */,
+				ADEBC1E923CCCB95004332C9 /* Frameworks */,
+				ADEBC1EA23CCCB95004332C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TwinStick_Shooter;
+			productName = TwinStick_Shooter;
+			productReference = ADEBC1EC23CCCB96004332C9 /* TwinStick_Shooter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		ADEBC20523CCCB9C004332C9 /* TwinStick_ShooterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ADEBC21D23CCCB9C004332C9 /* Build configuration list for PBXNativeTarget "TwinStick_ShooterTests" */;
+			buildPhases = (
+				ADEBC20223CCCB9C004332C9 /* Sources */,
+				ADEBC20323CCCB9C004332C9 /* Frameworks */,
+				ADEBC20423CCCB9C004332C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ADEBC20823CCCB9C004332C9 /* PBXTargetDependency */,
+			);
+			name = TwinStick_ShooterTests;
+			productName = TwinStick_ShooterTests;
+			productReference = ADEBC20623CCCB9C004332C9 /* TwinStick_ShooterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		ADEBC21023CCCB9C004332C9 /* TwinStick_ShooterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ADEBC22023CCCB9C004332C9 /* Build configuration list for PBXNativeTarget "TwinStick_ShooterUITests" */;
+			buildPhases = (
+				ADEBC20D23CCCB9C004332C9 /* Sources */,
+				ADEBC20E23CCCB9C004332C9 /* Frameworks */,
+				ADEBC20F23CCCB9C004332C9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				ADEBC21323CCCB9C004332C9 /* PBXTargetDependency */,
+			);
+			name = TwinStick_ShooterUITests;
+			productName = TwinStick_ShooterUITests;
+			productReference = ADEBC21123CCCB9C004332C9 /* TwinStick_ShooterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		ADEBC1E423CCCB95004332C9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1130;
+				LastUpgradeCheck = 1130;
+				ORGANIZATIONNAME = "William Leet";
+				TargetAttributes = {
+					ADEBC1EB23CCCB95004332C9 = {
+						CreatedOnToolsVersion = 11.3;
+					};
+					ADEBC20523CCCB9C004332C9 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = ADEBC1EB23CCCB95004332C9;
+					};
+					ADEBC21023CCCB9C004332C9 = {
+						CreatedOnToolsVersion = 11.3;
+						TestTargetID = ADEBC1EB23CCCB95004332C9;
+					};
+				};
+			};
+			buildConfigurationList = ADEBC1E723CCCB95004332C9 /* Build configuration list for PBXProject "TwinStick_Shooter" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = ADEBC1E323CCCB95004332C9;
+			productRefGroup = ADEBC1ED23CCCB96004332C9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				ADEBC1EB23CCCB95004332C9 /* TwinStick_Shooter */,
+				ADEBC20523CCCB9C004332C9 /* TwinStick_ShooterTests */,
+				ADEBC21023CCCB9C004332C9 /* TwinStick_ShooterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		ADEBC1EA23CCCB95004332C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADEBC1FB23CCCB96004332C9 /* Main.storyboard in Resources */,
+				ADEBC1F223CCCB96004332C9 /* GameScene.sks in Resources */,
+				ADEBC1FD23CCCB9C004332C9 /* Assets.xcassets in Resources */,
+				ADEBC20023CCCB9C004332C9 /* LaunchScreen.storyboard in Resources */,
+				ADEBC1F423CCCB96004332C9 /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADEBC20423CCCB9C004332C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADEBC20F23CCCB9C004332C9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		ADEBC1E823CCCB95004332C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADC61CAE23E8F69400A3EDF1 /* Enemy_Behaviors.swift in Sources */,
+				ADEBC1F623CCCB96004332C9 /* GameScene.swift in Sources */,
+				ADCA3B9023DFDC05000B22B5 /* Player_Character.swift in Sources */,
+				ADE701F2248DC8280016592A /* Basic_Enemy.swift in Sources */,
+				AD21B32A248995AE0092B5A7 /* PC_Basic_Bullet.swift in Sources */,
+				ADE701F7248EA9A90016592A /* Enemy_Basic_Bullet.swift in Sources */,
+				ADE701F5248EA90A0016592A /* Enemy_Pistol.swift in Sources */,
+				ADE701EE248AAB0B0016592A /* Weapon.swift in Sources */,
+				AD5708EA2433D46600EB4C5C /* Wall.swift in Sources */,
+				ADC61C9E23E718FB00A3EDF1 /* Bullet.swift in Sources */,
+				ADE02B7724A7CEB500609E94 /* Gate.swift in Sources */,
+				ADE701F0248D8FA20016592A /* Starting_Weapon.swift in Sources */,
+				ADCA3B8E23DFD185000B22B5 /* Joystick.swift in Sources */,
+				ADC61CA223E89DB500A3EDF1 /* Red_Target.swift in Sources */,
+				ADADD38723EDB8D1005582CB /* Enemy.swift in Sources */,
+				ADFAA4C024DDE2D300B322F7 /* MapView.swift in Sources */,
+				ADEBC1F823CCCB96004332C9 /* GameViewController.swift in Sources */,
+				ADEBC1F023CCCB96004332C9 /* AppDelegate.swift in Sources */,
+				ADC61CA023E86FF000A3EDF1 /* Firing_Functions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADEBC20223CCCB9C004332C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADEBC20B23CCCB9C004332C9 /* TwinStick_ShooterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ADEBC20D23CCCB9C004332C9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ADEBC21623CCCB9C004332C9 /* TwinStick_ShooterUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		ADEBC20823CCCB9C004332C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ADEBC1EB23CCCB95004332C9 /* TwinStick_Shooter */;
+			targetProxy = ADEBC20723CCCB9C004332C9 /* PBXContainerItemProxy */;
+		};
+		ADEBC21323CCCB9C004332C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ADEBC1EB23CCCB95004332C9 /* TwinStick_Shooter */;
+			targetProxy = ADEBC21223CCCB9C004332C9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		ADEBC1F923CCCB96004332C9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ADEBC1FA23CCCB96004332C9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		ADEBC1FE23CCCB9C004332C9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ADEBC1FF23CCCB9C004332C9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		ADEBC21823CCCB9C004332C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		ADEBC21923CCCB9C004332C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		ADEBC21B23CCCB9C004332C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BW97AGCLWR;
+				INFOPLIST_FILE = TwinStick_Shooter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "testproject.TwinStick-Shooter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ADEBC21C23CCCB9C004332C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BW97AGCLWR;
+				INFOPLIST_FILE = TwinStick_Shooter/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "testproject.TwinStick-Shooter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		ADEBC21E23CCCB9C004332C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TwinStick_ShooterTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "testproject.TwinStick-ShooterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TwinStick_Shooter.app/TwinStick_Shooter";
+			};
+			name = Debug;
+		};
+		ADEBC21F23CCCB9C004332C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TwinStick_ShooterTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "testproject.TwinStick-ShooterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TwinStick_Shooter.app/TwinStick_Shooter";
+			};
+			name = Release;
+		};
+		ADEBC22123CCCB9C004332C9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TwinStick_ShooterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "testproject.TwinStick-ShooterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TwinStick_Shooter;
+			};
+			name = Debug;
+		};
+		ADEBC22223CCCB9C004332C9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = TwinStick_ShooterUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "testproject.TwinStick-ShooterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = TwinStick_Shooter;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		ADEBC1E723CCCB95004332C9 /* Build configuration list for PBXProject "TwinStick_Shooter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADEBC21823CCCB9C004332C9 /* Debug */,
+				ADEBC21923CCCB9C004332C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADEBC21A23CCCB9C004332C9 /* Build configuration list for PBXNativeTarget "TwinStick_Shooter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADEBC21B23CCCB9C004332C9 /* Debug */,
+				ADEBC21C23CCCB9C004332C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADEBC21D23CCCB9C004332C9 /* Build configuration list for PBXNativeTarget "TwinStick_ShooterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADEBC21E23CCCB9C004332C9 /* Debug */,
+				ADEBC21F23CCCB9C004332C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		ADEBC22023CCCB9C004332C9 /* Build configuration list for PBXNativeTarget "TwinStick_ShooterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ADEBC22123CCCB9C004332C9 /* Debug */,
+				ADEBC22223CCCB9C004332C9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = ADEBC1E423CCCB95004332C9 /* Project object */;
+}
