@@ -51,7 +51,17 @@ class Player_Character: SKSpriteNode{
     func ship_movement(x: CGFloat, y: CGFloat) {
         self.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
         self.physicsBody!.applyForce(CGVector(dx: x, dy: y))
+        //let newlocation = CGPoint(x: self.position.x + x/14, y: self.position.y + y/14)
+        //let movement = SKAction.move(to: newlocation, duration: 0.05)
+        //self.run(movement)
     }
+    
+    //Old ship movement function based off of SKActions - really liked to clip through walls!
+    /*let newlocation = CGPoint(x: PC.position.x + ship_speedX, y: PC.position.y + ship_speedY)
+    let movement = SKAction.move(to: newlocation, duration: 0.1)
+    movement.timingMode = .easeOut
+    PC.run(movement)
+     */
     
     //Handles damage
     func damaged(damageValue: Int){
@@ -70,18 +80,36 @@ class Player_Character: SKSpriteNode{
     
     func BAMF(){
         let bamf = SKSpriteNode(imageNamed: "BAMF")
-        bamf.setScale(0.05)
+        bamf.setScale(0.1)
         let hitbox_form = SKAction.run{
-            bamf.physicsBody = SKPhysicsBody(circleOfRadius: bamf.size.width * bamf.xScale)
+        bamf.physicsBody = SKPhysicsBody(circleOfRadius: bamf.size.width * bamf.xScale)
         bamf.physicsBody!.collisionBitMask = 0x0
         bamf.physicsBody!.categoryBitMask = CollisionType.Blank.rawValue
         bamf.physicsBody!.contactTestBitMask = CollisionType.Enemy_Bullet.rawValue
         bamf.physicsBody!.affectedByGravity = false
         }
-        let hitbox_seq = SKAction.sequence([hitbox_form,SKAction.wait(forDuration: 0.05)])
+        let hitbox_seq = SKAction.sequence([hitbox_form,SKAction.wait(forDuration: 0.04)])
         self.game_scene.addChild(bamf)
         bamf.position = self.position
-        bamf.run(SKAction.sequence([SKAction.scale(by: 20, duration: 0.5),SKAction.run{bamf.removeFromParent()}]))
+        bamf.run(SKAction.sequence([SKAction.scale(by: 20, duration: 0.4),SKAction.run{bamf.removeFromParent()}]))
+        bamf.run(SKAction.repeat(hitbox_seq, count: 10))
+    }
+    
+    func bamf(){
+        let bamf = SKSpriteNode(imageNamed: "BAMF")
+        bamf.setScale(0.1)
+        let hitbox_form = SKAction.run{
+        bamf.physicsBody = SKPhysicsBody(circleOfRadius: bamf.size.width * bamf.xScale)
+        bamf.physicsBody!.collisionBitMask = 0x0
+        bamf.physicsBody!.categoryBitMask = CollisionType.Blank.rawValue
+        bamf.physicsBody!.contactTestBitMask = CollisionType.Enemy_Bullet.rawValue
+        bamf.physicsBody!.affectedByGravity = false
+        bamf.alpha -= 0.08
+        }
+        let hitbox_seq = SKAction.sequence([hitbox_form,SKAction.wait(forDuration: 0.04)])
+        self.game_scene.addChild(bamf)
+        bamf.position = self.position
+        bamf.run(SKAction.sequence([SKAction.scale(by: 10, duration: 0.4),SKAction.run{bamf.removeFromParent()}]))
         bamf.run(SKAction.repeat(hitbox_seq, count: 10))
     }
     

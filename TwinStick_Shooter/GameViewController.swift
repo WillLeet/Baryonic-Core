@@ -17,7 +17,7 @@ class GameViewController: UIViewController {
     @IBOutlet weak var health_bar: UIImageView!
     @IBOutlet weak var health_status: UILabel!
     var health_graphics: [UIImage] = []
-    let movestick = UIImageView(image: UIImage(named: "Movement stick gui"))
+    //let movestick = UIImageView(image: UIImage(named: "Movement stick gui"))
     @IBOutlet weak var movestick_base: UIImageView!
     @IBOutlet weak var shootstick_base: UIImageView!
     @IBOutlet weak var map_display: MapView!
@@ -39,8 +39,9 @@ class GameViewController: UIViewController {
                 health_label.text = "HULL INTEGRITY: "
                 health_status.text = "NOMINAL"
                 health_status.textColor = UIColor(hue: 0.3, saturation: 0.41, brightness: 1, alpha: 1)
-                //health_status.textColor = UIColor(red: 138, green: 217, blue: 229, alpha: 1.0)
-                movestick.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+                
+                
+                //movestick.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
                 //self.view.addSubview(movestick)
                 
 
@@ -53,13 +54,14 @@ class GameViewController: UIViewController {
         }
     }
     
+    /*
     func updateJoystick(stick: String, x: CGFloat, y: CGFloat){
         if(stick=="move"){
             movestick.frame.origin.x = x-movestick.frame.width/2-movestick_base.frame.width/150
             movestick.frame.origin.y = self.view!.bounds.height-y-movestick.frame.height/2-movestick_base.frame.height/100
         }
     }
-        
+    */
     
     override var shouldAutorotate: Bool {
         return true
@@ -84,7 +86,7 @@ class GameViewController: UIViewController {
     @IBAction func ability1(_ sender: Any) {
         if(ability1_charges>0){
             ability1_charges -= 1
-            game!.PC.BAMF()
+            game!.PC.bamf()
         }
     }
     

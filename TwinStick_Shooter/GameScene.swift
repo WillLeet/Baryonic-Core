@@ -41,6 +41,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var current_level: [[Room]] = []
     let level_size: Int = 8
     var transition_check: String = "none"
+    var xcoords: Int = 0
+    var ycoords: Int = 0
+    //var safety_on: Bool = false
     
     
     
@@ -98,9 +101,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //self.addChild(bounds_test)
         
         spawn_enemies()
-        //viewController.updateJoystick(stick: "move", x: movement_stick.position.x, y: movement_stick.position.y)
-        //viewController.updateJoystick(stick: "shoot", x: shooting_stick.frame.origin.x, y: shooting_stick.frame.origin.y)
  
+        //For whatever reason, the code needs a moment before it figures out how big frames are
+        //Delaying the initial map draw lets it work this out so that it *doesn't* draw the first map square in the wrong place and size for some reason
+        //There's probably a smarter way of doing this, but if it works...
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            self.viewController.map_display.updateMap(scene: self)
+        }
+
     }
     
     func decelerate(value: CGFloat) -> CGFloat { //Decreases ship speed gradually
@@ -118,12 +126,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let location = touch.location(in: self)
             if(movement_stick.isWithinBounds(touch: location)){
                 movement_stick.move_joystick(location: location)
-                //viewController.movestick_base.image = UIImage(contentsOfFile: "Movepad Pressed")
+                //viewController.movestick_base.image = UIImage(named: "Movepad Pressed")
                 //viewController.updateJoystick(stick: "move", x: movement_stick.position.x, y: movement_stick.position.y)
             }
             if(shooting_stick.isWithinBounds(touch: location)){
                 shooting_stick.move_joystick(location: location)
-                //viewController.shootstick_base.image = UIImage(contentsOfFile: "Shootpad Pressed")
+                //viewController.shootstick_base.image = UIImage(named: "Shootpad Pressed")
                 //viewController.updateJoystick(stick: "shoot", x: shooting_stick.frame.origin.x, y: shooting_stick.frame.origin.y)
             }
         }
@@ -154,13 +162,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let location = touch.location(in: self)
             if(movement_stick.is_inUse() && location.x <= self.view!.bounds.width/2) {
                 movement_stick.reset_joystick()
-                //viewController.movestick_base.image = UIImage(contentsOfFile: "Movepad Unpressed")
+                //viewController.movestick_base.image = UIImage(named: "Movepad Unpressed")
                 //viewController.updateJoystick(stick: "move", x: movement_stick.position.x, y: movement_stick.position.y)
             }
             
             if(shooting_stick.is_inUse() && location.x > self.view!.bounds.width/2){
                 shooting_stick.reset_joystick()
-                //viewController.shootstick_base.image = UIImage(contentsOfFile: "Shootpad Unpressed")
+                //viewController.shootstick_base.image = UIImage(named: "Shootpad Unpressed")
                 //viewController.updateJoystick(stick: "shoot", x: shooting_stick.frame.origin.x, y: shooting_stick.frame.origin.y)
             }
             
@@ -471,9 +479,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //current_room = current_level[5][3]
         //arena = construct_arena(room: current_room, centerx: self.view!.bounds.width/2, centery: self.view!.bounds.height/2, opengates: false)
         //Int.random(in: 0...level_size)
-        let startingx = 3
-        let startingy = 4
-        current_room = current_level[startingx][startingy]
+        xcoords = 3
+        ycoords = 4
+        current_room = current_level[xcoords][ycoords]
         arena = construct_arena(room: current_room, centerx: self.view!.bounds.width/2, centery: self.view!.bounds.height/2, opengates: false)
     }
     
@@ -492,6 +500,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         var arena_shift: SKAction = SKAction()
         var player_shift: SKAction = SKAction()
         if(movingto == "N"){
+            ycoords -= 1
             next_arena = construct_arena(room: current_room.north!, centerx: self.view!.bounds.width/2, centery: 3*self.view!.bounds.height/2, opengates: true)
             //Shifts both player and arenas accordingly
             arena_shift = SKAction.moveBy(x: 0.0, y: -self.view!.bounds.height, duration: 0.8)
@@ -500,6 +509,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             arena["north gate"]!.physicsBody!.categoryBitMask = CollisionType.Blank.rawValue
         }
         if(movingto == "S"){
+            ycoords += 1
             next_arena = construct_arena(room: current_room.south!, centerx: self.view!.bounds.width/2, centery: -self.view!.bounds.height/2, opengates: true)
             //Shifts both player and arenas accordingly
             arena_shift = SKAction.moveBy(x: 0.0, y: self.view!.bounds.height, duration: 0.8)
@@ -508,6 +518,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             arena["south gate"]!.physicsBody!.categoryBitMask = CollisionType.Blank.rawValue
         }
         if(movingto == "W"){
+            xcoords -= 1
             next_arena = construct_arena(room: current_room.west!, centerx: self.view!.bounds.width/2 - (5.5*self.view!.bounds.width/10) + (self.view!.bounds.width/132), centery: self.view!.bounds.height/2, opengates: true)
             //Shifts both player and arenas accordingly
             arena_shift = SKAction.moveBy(x: 5.5*self.view!.bounds.width/10 - (self.view!.bounds.width/132), y: 0.0, duration: 0.8)
@@ -516,6 +527,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             arena["west gate"]!.physicsBody!.categoryBitMask = CollisionType.Blank.rawValue
         }
         if(movingto == "E"){
+            xcoords += 1
             next_arena = construct_arena(room: current_room.east!, centerx: self.view!.bounds.width/2 + (5.5*self.view!.bounds.width/10)-(self.view!.bounds.width/132), centery: self.view!.bounds.height/2, opengates: true)
             //Shifts both player and arenas accordingly
             arena_shift = SKAction.moveBy(x: -5.5*self.view!.bounds.width/10 + (self.view!.bounds.width/132), y: 0.0, duration: 0.8)
@@ -523,6 +535,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             current_room = current_room.east!
             arena["east gate"]!.physicsBody!.categoryBitMask = CollisionType.Blank.rawValue
         }
+        viewController.map_display.updateMap(scene: self)
          current_room.playerIn = true
         arena_shift.timingMode = .easeInEaseOut
         player_shift.timingMode = .easeInEaseOut
@@ -560,6 +573,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             player_shift,
             SKAction.run{self.PC.physicsBody!.categoryBitMask = CollisionType.Player.rawValue},
         ]))
+        //print("New coordinates: ",xcoords,",",ycoords)
     }
     
     //Prototype enemy spawning function
@@ -652,6 +666,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             else {
                 let bullet = contactB as! Bullet
                 bullet.impact()
+            }
+        case CollisionType.Blank.rawValue | CollisionType.Player_Bullet.rawValue:
+            if let bullet = contactA as? Bullet {
+                if(current_room.status == "cleared"){bullet.impact()}
+            }
+            else {
+                let bullet = contactB as! Bullet
+                if(current_room.status == "cleared"){bullet.impact()}
             }
         //Triggers passage between rooms upon the player reaching an open gate
         case CollisionType.Gate.rawValue | CollisionType.Player.rawValue:
