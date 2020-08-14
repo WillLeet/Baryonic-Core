@@ -80,7 +80,35 @@ class GameViewController: UIViewController {
     }
     
     func updateHealth(health: Int){
-        health_bar.image = UIImage(named: "Health 100%")
+        let health_percent: String = "Health "+String(health * 10)+"%"
+        //print(health_percent)
+        health_bar.image = UIImage(named: health_percent)
+        if(health>8){
+            health_status.text = "NOMINAL"
+            health_status.textColor = UIColor(hue: 0.3, saturation: 0.41, brightness: 1, alpha: 1)
+            health_label.text = "HULL INTEGRITY: "
+            health_label.textColor = UIColor(red: 0.423529, green: 0.858824, blue: 0.909804, alpha: 1)
+        }
+        else if(health>6){
+            health_status.text = "STABLE"
+            health_status.textColor = UIColor(hue: 0.25, saturation: 0.41, brightness: 1, alpha: 1)
+        }
+        else if(health>4){
+            health_status.text = "DAMAGED"
+            health_status.textColor = UIColor(hue: 0.2, saturation: 0.41, brightness: 1, alpha: 1)
+        }
+        else if(health>2){
+            health_status.text = "BREACHED"
+            health_status.textColor = UIColor(hue: 0.1, saturation: 0.41, brightness: 1, alpha: 1)
+        }
+        else if(health>0){
+            health_status.text = "CRITICAL"
+            health_status.textColor = UIColor(hue: 0.0, saturation: 0.41, brightness: 1, alpha: 1)
+        } else {
+            health_status.text = ""
+            health_label.textColor = UIColor(hue: 0.0, saturation: 0.8, brightness: 1, alpha: 1)
+            health_label.text = "ERROR\\%-ERR{OR--;;ERR"
+        }
     }
     
     @IBAction func ability1(_ sender: Any) {

@@ -74,9 +74,7 @@ class Enemy: SKSpriteNode{
         self.removeFromParent()
         //If this ship's death clears the current room of enemies, opens gates
         if(game_scene.enemy_count==0 && game_scene.current_room.status == "uncleared"){
-            game_scene.PC.BAMF()
-            game_scene.openGates()
-            game_scene.current_room.status = "cleared"
+            game_scene.roomClear()
         }
         //print(game_scene.current_room.status)
         //print(game_scene.current_room.north?.status as Any)

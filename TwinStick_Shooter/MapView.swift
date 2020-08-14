@@ -24,11 +24,10 @@ class MapView: UIView {
         super.draw(frame)
         
         if let context: CGContext = UIGraphicsGetCurrentContext(){
-            //UIGraphicsPopContext()
             guard let currentrect = display.popLast() else {return}
             for drect in display{
             context.setFillColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 0.0);   //this is the transparent color
-            context.setStrokeColor(red: 0.0, green: 0.0, blue: 100.0, alpha: 1.0);
+                context.setStrokeColor(red: 0.3, green: 0.8, blue: 1.0, alpha: 1.0);
             context.fill(drect);
             context.stroke(drect);    //this will draw the border
             context.addRect(drect)
@@ -39,7 +38,6 @@ class MapView: UIView {
             context.stroke(currentrect);    //this will draw the border
             context.addRect(currentrect)
             display.append(currentrect)
-            UIGraphicsPushContext(context)
         } else {
             print("Context not found")
             return
@@ -54,10 +52,10 @@ class MapView: UIView {
         levelsize = scene.level_size
         x = scene.xcoords
         y = scene.ycoords
-        print(x!,y!)
+        //print(x!,y!)
         let w = self.frame.width
         let h = self.frame.height
-        let drect = CGRect(x: CGFloat(x)*w/8, y: CGFloat(y-1)*h/8 + (h/100), width: (h / 11), height: (h / 11))
+        let drect = CGRect(x: CGFloat(x)*w/8 + (h/100), y: CGFloat(y-1)*h/8 + (h/100), width: (h / 11), height: (h / 11))
         display.append(drect)
         setNeedsDisplay()
     }

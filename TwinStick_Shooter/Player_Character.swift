@@ -26,9 +26,9 @@ class Player_Character: SKSpriteNode{
         self.setScale(scale)
         ship_scale = scale
         game_scene = game_world
-        barrel_length = self.frame.height/3
+        barrel_length = self.frame.height/2
         current_weapon = Starting_Weapon(game_world: game_scene, pcship: self, barrel_len: barrel_length)
-        health = 5
+        health = 10
         
         //Physicsbodies from textures appear to go off of the original sprite size unless specified
         //Ergo, I have created a "hitbox" CGsize that scales with the sprite to build the body from
@@ -65,8 +65,10 @@ class Player_Character: SKSpriteNode{
     
     //Handles damage
     func damaged(damageValue: Int){
-        health -= damageValue
-        if(health <= 0){
+        //print("Oof owie")
+        health = max(health-damageValue,0)
+        game_scene.viewController.updateHealth(health: health)
+        if(health == 0){
             self.physicsBody = nil
             die()
         }
@@ -85,7 +87,7 @@ class Player_Character: SKSpriteNode{
         bamf.physicsBody = SKPhysicsBody(circleOfRadius: bamf.size.width * bamf.xScale)
         bamf.physicsBody!.collisionBitMask = 0x0
         bamf.physicsBody!.categoryBitMask = CollisionType.Blank.rawValue
-        bamf.physicsBody!.contactTestBitMask = CollisionType.Enemy_Bullet.rawValue
+        bamf.physicsBody!.contactTestBitMask = CollisionType.Enemy_Bullet.rawValue | CollisionType.Player_Bullet.rawValue
         bamf.physicsBody!.affectedByGravity = false
         }
         let hitbox_seq = SKAction.sequence([hitbox_form,SKAction.wait(forDuration: 0.04)])
@@ -102,7 +104,7 @@ class Player_Character: SKSpriteNode{
         bamf.physicsBody = SKPhysicsBody(circleOfRadius: bamf.size.width * bamf.xScale)
         bamf.physicsBody!.collisionBitMask = 0x0
         bamf.physicsBody!.categoryBitMask = CollisionType.Blank.rawValue
-        bamf.physicsBody!.contactTestBitMask = CollisionType.Enemy_Bullet.rawValue
+        bamf.physicsBody!.contactTestBitMask = CollisionType.Enemy_Bullet.rawValue | CollisionType.Player_Bullet.rawValue
         bamf.physicsBody!.affectedByGravity = false
         bamf.alpha -= 0.08
         }

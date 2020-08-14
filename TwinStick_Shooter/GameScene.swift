@@ -43,7 +43,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var transition_check: String = "none"
     var xcoords: Int = 0
     var ycoords: Int = 0
-    //var safety_on: Bool = false
+    var safety_off: Bool = true
     
     
     
@@ -194,8 +194,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let ship_angle = shooting_stick.get_angle() - CGFloat(Double.pi/2)
             PC.zRotation = ship_angle
             
-            //If ship's gun is off cooldown, fires
-            if(PC.current_weapon.canFire()){
+            //If ship's gun is off cooldown and allowed to fire, fires
+            if(PC.current_weapon.canFire() && safety_off){
                 PC.current_weapon.fire(angle: ship_angle)
             }
         }
@@ -227,6 +227,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         PC.position = CGPoint(x: self.view!.bounds.width/2, y: self.view!.bounds.height/2)
         self.addChild(PC)
         self.isPaused = false
+        viewController.updateHealth(health: PC.health)
         
         
         for (_, enemy) in current_enemies{
@@ -557,7 +558,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             SKAction.run{
                 if(self.current_room.status == "uncleared"){
                     self.run(SKAction.sequence([
-                    SKAction.run{self.closeGates()},
+                    SKAction.run{
+                        self.closeGates()
+                        self.safety_off = true
+                        },
                     SKAction.wait(forDuration: 0.3),
                     SKAction.run{self.spawn_enemies()}
                     ]))
@@ -586,6 +590,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         let spawning = SKAction.repeat(newtarget,count: 2)
         self.run(spawning)
+    }
+    
+    //triggers when a room is cleared!
+    func roomClear(){
+        current_room.status = "cleared"
+        safety_off = false
+        PC.BAMF()
+        openGates()
     }
     
 //Handles contact between sprites
@@ -625,7 +637,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 player.damaged(damageValue: bullet.get_damage())
                 bullet.impact()
             }
-            viewController.updateHealth(health: PC.health)
         //Handles contact between bullets and walls 
         case CollisionType.Wall.rawValue | CollisionType.Player_Bullet.rawValue:
             if let bullet = contactA as? Bullet {
