@@ -18,8 +18,6 @@ class Player_Character: SKSpriteNode{
     var ship_scale: CGFloat!
     var current_weapon: Weapon!
     var health: Int!
-    var ability1_charges: Int = 3
-    var ability2_charges: Int = 3
 
     convenience init(scale: CGFloat, game_world: GameScene){
         self.init(imageNamed: "Proto Ship")

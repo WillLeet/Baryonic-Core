@@ -23,6 +23,15 @@ class GameViewController: UIViewController {
     @IBOutlet weak var map_display: MapView!
     var ability1_charges: Int = 3
     var ability2_charges: Int = 3
+    var ability1_type: String = "BAMF"
+    var ability2_type: String = "No Ability"
+    
+    @IBOutlet weak var ability1_chargeDisplay: UIImageView!
+    @IBOutlet weak var ability2_chargeDisplay: UIImageView!
+    @IBOutlet weak var ability2_status: UILabel!
+    @IBOutlet weak var ability1_label: UILabel!
+    @IBOutlet weak var ability2_label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,8 +48,6 @@ class GameViewController: UIViewController {
                 health_label.text = "HULL INTEGRITY: "
                 health_status.text = "NOMINAL"
                 health_status.textColor = UIColor(hue: 0.3, saturation: 0.41, brightness: 1, alpha: 1)
-                
-                
                 //movestick.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
                 //self.view.addSubview(movestick)
                 
@@ -52,6 +59,14 @@ class GameViewController: UIViewController {
             view.showsFPS = true
             view.showsNodeCount = true
         }
+    }
+    
+    override func viewDidLayoutSubviews() {
+        ability1_label.numberOfLines = 2
+        ability1_label.text = "B.A.M.F\nCHARGES"
+        ability2_label.numberOfLines = 2
+        ability2_label.text = ""
+        ability2_status.text = "NO CONTINGENCY"
     }
     
     /*
@@ -111,9 +126,15 @@ class GameViewController: UIViewController {
         }
     }
     
+    func updateCharges(display: UIImageView, type: String, charges: Int){
+        let spritename: String = type + String(charges)
+        display.image = UIImage(named: spritename)
+    }
+    
     @IBAction func ability1(_ sender: Any) {
         if(ability1_charges>0){
             ability1_charges -= 1
+            updateCharges(display: ability1_chargeDisplay, type: ability1_type, charges: ability1_charges)
             game!.PC.bamf()
         }
     }
