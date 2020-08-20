@@ -585,10 +585,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //Spawns target
         let newtarget = SKAction.run{
             //Spawns enemy, immediately runs its behavior
-            let enemy = Basic_Enemy(scale: 0.25, game_world: self)
+            let enemy = Enemy_Skirmisher(scale: 0.2, game_world: self)
             self.spawn(tospawn: enemy)
+            let enemy2 = Basic_Enemy(scale: 0.25, game_world: self)
+            self.spawn(tospawn: enemy2)
         }
-        let spawning = SKAction.repeat(newtarget,count: 2)
+        let spawning = SKAction.repeat(newtarget,count: 3)
         self.run(spawning)
     }
     

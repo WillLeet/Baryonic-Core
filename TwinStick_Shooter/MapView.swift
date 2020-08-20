@@ -5,6 +5,7 @@
 //  Created by William Leet on 8/7/20.
 //  Copyright © 2020 William Leet. All rights reserved.
 //
+// A custom UIView that draws the ship's map.
 
 import UIKit
 

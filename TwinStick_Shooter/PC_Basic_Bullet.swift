@@ -14,7 +14,7 @@ import GameplayKit
 class PC_Basic_Bullet: Bullet{
 
     convenience init(scale: CGFloat, game_world: GameScene){
-        self.init(scale: scale, sprite: "Goodbullet", dmg: 2, type: "PC", game_world: game_world)
+        self.init(scale: scale, sprite: "Goodbullet", dmg: 1, type: "PC", game_world: game_world)
         //self.bounces = true
     }
 

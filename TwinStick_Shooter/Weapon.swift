@@ -45,6 +45,17 @@ class Weapon: NSObject{
            fire_rate = new_fire_rate
        }
      
+    func get_fire_speed() -> CGFloat{
+        return firing_speed
+    }
+       
+    func set_fire_speed(new_firing_speed: CGFloat){
+           firing_speed = new_firing_speed
+       }
+    
+    func barrelLength() -> CGFloat{
+        return barrel_length
+    }
     
     //A generic "fire" class that will be overridden by the specific properties of each weapon
     func fire(angle: CGFloat){

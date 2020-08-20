@@ -15,7 +15,7 @@ import GameplayKit
 class Gate: Wall{
     
     var direction: String!
-    var locked: Bool = false
+    var isOpen: Bool = false
 
     //For the sake of practicality, gates can only use the more specific Wall constructor
     //The gate will be initialized as open
@@ -32,6 +32,7 @@ class Gate: Wall{
     }
     
     func setClosed(){
+    isOpen = false
     //Sets bitmask settings to Wall, makes sprite opaque
     self.physicsBody!.categoryBitMask = CollisionType.Wall.rawValue
     self.physicsBody!.collisionBitMask = CollisionType.Player_Bullet.rawValue | CollisionType.Player.rawValue
@@ -40,6 +41,7 @@ class Gate: Wall{
     }
     
     func setOpen(){
+    isOpen = true
     //Sets bitmask settings to Gate, makes sprite transparent
     self.physicsBody!.categoryBitMask = CollisionType.Gate.rawValue
     self.physicsBody!.collisionBitMask = 0x0
@@ -48,6 +50,7 @@ class Gate: Wall{
     }
     
     func open(){
+        isOpen = true
         //Functionally the same as 'setOpen', but fades the gate sprite out
         //Sets bitmask settings to Gate, makes sprite transparent
         self.physicsBody!.categoryBitMask = CollisionType.Gate.rawValue
@@ -64,6 +67,7 @@ class Gate: Wall{
     }
     
     func close(){
+        isOpen = false
         //Functionally the same as 'setClosed', but fades the gate sprite in
         self.physicsBody!.categoryBitMask = CollisionType.Wall.rawValue
         self.physicsBody!.collisionBitMask = CollisionType.Player_Bullet.rawValue | CollisionType.Player.rawValue

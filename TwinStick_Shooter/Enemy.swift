@@ -45,7 +45,7 @@ class Enemy: SKSpriteNode{
         var hitbox: CGSize = self.texture!.size()
         hitbox.width *= scale
         hitbox.height *= scale
-        self.physicsBody = SKPhysicsBody(circleOfRadius: hitbox.width * 0.6)
+        self.physicsBody = SKPhysicsBody(circleOfRadius: hitbox.width * 0.5)
         self.physicsBody!.affectedByGravity = false
         
         //Bitmask labelled as "Enemy", triggers didBegin on contact with player bullets
@@ -53,7 +53,7 @@ class Enemy: SKSpriteNode{
         self.physicsBody!.collisionBitMask = 0x0
         self.physicsBody!.categoryBitMask = CollisionType.Enemy.rawValue
         self.physicsBody!.contactTestBitMask = CollisionType.Player_Bullet.rawValue
-        
+        self.alpha = 0.0
         game_scene.addChild(self)
        }
     

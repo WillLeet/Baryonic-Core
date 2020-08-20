@@ -127,8 +127,12 @@ class GameViewController: UIViewController {
     }
     
     func updateCharges(display: UIImageView, type: String, charges: Int){
-        let spritename: String = type + String(charges)
-        display.image = UIImage(named: spritename)
+        if(charges == 0){
+            display.image = UIImage(named: "No Ability")
+        } else {
+            let spritename: String = type + String(charges)
+            display.image = UIImage(named: spritename)
+        }
     }
     
     @IBAction func ability1(_ sender: Any) {

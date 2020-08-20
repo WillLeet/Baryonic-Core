@@ -7,8 +7,6 @@
 //
 //  Basic enemy weapon. Simplified constructor call made into a class for the sake of organization.
 
-import Foundation
-
 import UIKit
 import SpriteKit
 import GameplayKit
