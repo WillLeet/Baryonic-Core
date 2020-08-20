@@ -89,6 +89,20 @@ func aggressive_behavior(scene: GameScene, ship: SKSpriteNode, opponent: Player_
     return toreturn
 }
 
+func cautious_behavior(scene: GameScene, ship: SKSpriteNode, opponent: Player_Character)->SKAction {
+    //Builds action that generates a new aggressive movement and runs it on the ship
+    let movement = SKAction.run{
+        let action = random_movement(scene: scene, ship: ship, opponent: opponent, scale: 0.8, time : 2.0)
+        action.timingMode = .easeInEaseOut
+        ship.run(action)
+    }
+    //Performs an aggressive, then random action, with appropriate intermittent pauses
+    let move_seq: SKAction = SKAction.sequence([movement,SKAction.wait(forDuration: 2.0)])
+    //Loads an action that does this FOREVER
+    let toreturn: SKAction = SKAction.repeatForever(move_seq)
+    return toreturn
+}
+
 
 //Defines action in which a sprite moves in a 'space invaders' style path
 //This isn't actually used anywhere in the game.

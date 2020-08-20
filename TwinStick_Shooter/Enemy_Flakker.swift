@@ -19,7 +19,7 @@ class Enemy_Flakker: Enemy{
     
     convenience init(scale: CGFloat, game_world: GameScene){
         self.init(sprite: "Flakker_0", scale: scale, game_world: game_world, hp: 5)
-        weapon = Enemy_Repeater(game_world: game_scene, user: self, barrel_len: (self.frame.height/2))
+        weapon = Flak_Cannon(game_world: game_scene, user: self, barrel_len: (self.frame.height/1.8))
     }
     
     //Runs the ship's movement and firing behaviors indefinitely.
@@ -29,10 +29,10 @@ class Enemy_Flakker: Enemy{
         }
         let between_shots = SKAction.wait(forDuration: self.weapon.get_fire_rate())
         let firing_seq = SKAction.sequence([between_shots,attack])
-        let salvo = SKAction.repeat(firing_seq, count: 3)
-        let between_salvos = SKAction.wait(forDuration: 1.8)
+        let salvo = SKAction.repeat(firing_seq, count: 4)
+        let between_salvos = SKAction.wait(forDuration: 2)
         let firing_behavior = SKAction.repeatForever(SKAction.sequence([salvo,between_salvos]))
-        let movement_behavior = skittish_behavior(scene: game_scene, ship: self, opponent: opponent)
+        let movement_behavior = cautious_behavior(scene: game_scene, ship: self, opponent: opponent)
         self.run(firing_behavior)
         self.run(movement_behavior)
         

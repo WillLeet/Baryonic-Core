@@ -12,6 +12,7 @@
 		AD5708EA2433D46600EB4C5C /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5708E92433D46600EB4C5C /* Wall.swift */; };
 		AD62277924EC31C400946673 /* Enemy_Skirmisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD62277824EC31C400946673 /* Enemy_Skirmisher.swift */; };
 		AD62277B24EC32B900946673 /* Enemy_Repeater.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD62277A24EC32B900946673 /* Enemy_Repeater.swift */; };
+		AD776A2D24EF2259003D86D5 /* Flak_Cannon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD776A2C24EF2259003D86D5 /* Flak_Cannon.swift */; };
 		ADADD38723EDB8D1005582CB /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADD38623EDB8D1005582CB /* Enemy.swift */; };
 		ADC61C9E23E718FB00A3EDF1 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61C9D23E718FA00A3EDF1 /* Bullet.swift */; };
 		ADC61CA023E86FF000A3EDF1 /* Firing_Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61C9F23E86FF000A3EDF1 /* Firing_Functions.swift */; };
@@ -61,6 +62,7 @@
 		AD5708E92433D46600EB4C5C /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		AD62277824EC31C400946673 /* Enemy_Skirmisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_Skirmisher.swift; sourceTree = "<group>"; };
 		AD62277A24EC32B900946673 /* Enemy_Repeater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_Repeater.swift; sourceTree = "<group>"; };
+		AD776A2C24EF2259003D86D5 /* Flak_Cannon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flak_Cannon.swift; sourceTree = "<group>"; };
 		ADADD38623EDB8D1005582CB /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		ADC61C9D23E718FA00A3EDF1 /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
 		ADC61C9F23E86FF000A3EDF1 /* Firing_Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firing_Functions.swift; sourceTree = "<group>"; };
@@ -161,6 +163,7 @@
 				ADE701F4248EA90A0016592A /* Enemy_Pistol.swift */,
 				AD62277A24EC32B900946673 /* Enemy_Repeater.swift */,
 				ADE701F6248EA9A90016592A /* Enemy_Basic_Bullet.swift */,
+				AD776A2C24EF2259003D86D5 /* Flak_Cannon.swift */,
 			);
 			name = Enemy_Weapons;
 			sourceTree = "<group>";
@@ -358,6 +361,7 @@
 			files = (
 				ADC61CAE23E8F69400A3EDF1 /* Enemy_Behaviors.swift in Sources */,
 				ADEBC1F623CCCB96004332C9 /* GameScene.swift in Sources */,
+				AD776A2D24EF2259003D86D5 /* Flak_Cannon.swift in Sources */,
 				ADCA3B9023DFDC05000B22B5 /* Player_Character.swift in Sources */,
 				AD62277924EC31C400946673 /* Enemy_Skirmisher.swift in Sources */,
 				ADE701F2248DC8280016592A /* Basic_Enemy.swift in Sources */,
