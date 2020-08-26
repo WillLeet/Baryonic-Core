@@ -94,6 +94,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         //Defines arena bounds to help with enemy ship movement
         arena_bounds = CGRect(origin: CGPoint(x: self.view!.bounds.width/3.65, y: self.view!.bounds.height/12), size: CGSize(width: 4.5*self.view!.bounds.width/10, height: 8.4*self.view!.bounds.height/10))
+        print(arena_bounds.height)
+        print(arena_bounds.width)
         
         //Creates sprite node to highlight arena bounds in red for testing purposes
         //let bounds_test = SKSpriteNode(color: UIColor.systemRed, size: arena_bounds.size)

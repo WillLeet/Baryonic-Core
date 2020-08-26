@@ -1,12 +1,11 @@
 //
-//  Firing_Functions.swift
+//  Helper_Functions.swift
 //  TwinStick_Shooter
 //
 //  Created by William Leet on 2/3/20.
 //  Copyright © 2020 William Leet. All rights reserved.
 //
-//  Functions to help weapons work properly. So far, just point_on_circle.
-//  Frankly, I may just move this all to Weapon.swift if I don't come up with any new ones.
+//  Functions to help things move and fire properly, among other things
 
 import UIKit
 import SpriteKit
@@ -23,4 +22,12 @@ func point_on_circle(angle: CGFloat, circle_size: CGFloat) -> [CGFloat]{
     coords.append(y)
     coords.append(x)
     return coords
+}
+
+//Returns the distance between two points
+//Helps with certain AI behaviors. 
+func getDistance(_ point1: CGPoint, _ point2: CGPoint) -> CGFloat{
+    let x = point1.x - point2.x
+    let y = point1.y - point2.y
+    return sqrt((x*x) + (y*y))
 }

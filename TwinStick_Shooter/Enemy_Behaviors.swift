@@ -30,12 +30,33 @@ func aggressive_movement(scene: GameScene, ship: SKSpriteNode, opponent: Player_
     return toreturn
 }
 
-/*
 
-func passive_movement(scene: GameScene, ship: SKSpriteNode, opponent: Player_Character)-> SKAction{
-    
+//Returns a movement that a point that must be a set distance away from the player
+func passive_movement(scene: GameScene, ship: SKSpriteNode, opponent: Player_Character, scale: CGFloat, time: Double)-> SKAction{
+    var xvals: [CGFloat] = []
+    var yvals: [CGFloat] = []
+    let minDist: CGFloat = 100 * scale
+    if(opponent.position.x + minDist <= scene.arena_bounds.maxX){
+        xvals.append(CGFloat.random(in: opponent.position.x + minDist...scene.arena_bounds.maxX))
+    }
+    if(opponent.position.x - minDist >= scene.arena_bounds.minX){
+        xvals.append(CGFloat.random(in: scene.arena_bounds.minX...opponent.position.x - minDist))
+    }
+    if(opponent.position.y + minDist <= scene.arena_bounds.maxY){
+        yvals.append(CGFloat.random(in: opponent.position.y + minDist...scene.arena_bounds.maxY))
+    }
+    if(opponent.position.y - minDist >= scene.arena_bounds.minY){
+        yvals.append(CGFloat.random(in: scene.arena_bounds.minY...opponent.position.y - minDist))
+    }
+    if(xvals.isEmpty&&yvals.isEmpty){
+        print("Well this can't be good")
+        return SKAction.wait(forDuration: time)
+    } else {
+        let point = CGPoint(x: xvals.randomElement()!, y: yvals.randomElement()!)
+        return SKAction.move(to: point, duration: time)
+    }
 }
-*/
+
 //Returns a movement to a random point somewhat nearby the ship within arena bounds
 func random_movement(scene: GameScene, ship: SKSpriteNode, opponent: Player_Character, scale: CGFloat, time: Double)->SKAction{
     //print("Random!")
@@ -55,8 +76,8 @@ func random_movement(scene: GameScene, ship: SKSpriteNode, opponent: Player_Char
 
 }
 
-//Loads a forever-repeating SKAction controlling ship movement.
-//The action in question makes the ship move pretty aggressively!
+
+//This behvaior makes the ship move erratically, but offesively
 func skittish_behavior(scene: GameScene, ship: SKSpriteNode, opponent: Player_Character)->SKAction {
     //Builds action that generates a new aggressive movement and runs it on the ship
     let movement1 = SKAction.run{
@@ -77,6 +98,7 @@ func skittish_behavior(scene: GameScene, ship: SKSpriteNode, opponent: Player_Ch
     return toreturn
 }
 
+//This behvaior makes the ship run at the player (though
 func aggressive_behavior(scene: GameScene, ship: SKSpriteNode, opponent: Player_Character)->SKAction {
     //Builds action that generates a new aggressive movement and runs it on the ship
     let movement = SKAction.run{
@@ -89,19 +111,25 @@ func aggressive_behavior(scene: GameScene, ship: SKSpriteNode, opponent: Player_
     return toreturn
 }
 
+//This behavior causes the ship to attempt to keep its distance from the player
 func cautious_behavior(scene: GameScene, ship: SKSpriteNode, opponent: Player_Character)->SKAction {
-    //Builds action that generates a new aggressive movement and runs it on the ship
     let movement = SKAction.run{
-        let action = random_movement(scene: scene, ship: ship, opponent: opponent, scale: 0.8, time : 2.0)
+        var action: SKAction!
+        if(getDistance(ship.position, opponent.position)<140){
+            action = passive_movement(scene: scene, ship: ship, opponent: opponent, scale: 1.2, time : 2.2)
+        } else {
+            action = random_movement(scene: scene, ship: ship, opponent: opponent, scale: 0.6, time: 2.2)
+        }
         action.timingMode = .easeInEaseOut
         ship.run(action)
     }
     //Performs an aggressive, then random action, with appropriate intermittent pauses
-    let move_seq: SKAction = SKAction.sequence([movement,SKAction.wait(forDuration: 2.0)])
+    let move_seq: SKAction = SKAction.sequence([movement,SKAction.wait(forDuration: 2.2)])
     //Loads an action that does this FOREVER
     let toreturn: SKAction = SKAction.repeatForever(move_seq)
     return toreturn
 }
+
 
 
 //Defines action in which a sprite moves in a 'space invaders' style path

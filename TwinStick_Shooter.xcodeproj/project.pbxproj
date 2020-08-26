@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		AD07D94C24EF1A400083B4CC /* Enemy_Flakker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD07D94B24EF1A400083B4CC /* Enemy_Flakker.swift */; };
 		AD21B32A248995AE0092B5A7 /* PC_Basic_Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21B329248995AE0092B5A7 /* PC_Basic_Bullet.swift */; };
+		AD4AEA0724F57D0000B0BC01 /* Helper_Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4AEA0624F57D0000B0BC01 /* Helper_Functions.swift */; };
 		AD5708EA2433D46600EB4C5C /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5708E92433D46600EB4C5C /* Wall.swift */; };
 		AD62277924EC31C400946673 /* Enemy_Skirmisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD62277824EC31C400946673 /* Enemy_Skirmisher.swift */; };
 		AD62277B24EC32B900946673 /* Enemy_Repeater.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD62277A24EC32B900946673 /* Enemy_Repeater.swift */; };
 		AD776A2D24EF2259003D86D5 /* Flak_Cannon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD776A2C24EF2259003D86D5 /* Flak_Cannon.swift */; };
 		ADADD38723EDB8D1005582CB /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADD38623EDB8D1005582CB /* Enemy.swift */; };
 		ADC61C9E23E718FB00A3EDF1 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61C9D23E718FA00A3EDF1 /* Bullet.swift */; };
-		ADC61CA023E86FF000A3EDF1 /* Firing_Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61C9F23E86FF000A3EDF1 /* Firing_Functions.swift */; };
 		ADC61CA223E89DB500A3EDF1 /* Red_Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61CA123E89DB500A3EDF1 /* Red_Target.swift */; };
 		ADC61CAE23E8F69400A3EDF1 /* Enemy_Behaviors.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61CAD23E8F69400A3EDF1 /* Enemy_Behaviors.swift */; };
 		ADCA3B8E23DFD185000B22B5 /* Joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADCA3B8D23DFD185000B22B5 /* Joystick.swift */; };
@@ -59,13 +59,13 @@
 /* Begin PBXFileReference section */
 		AD07D94B24EF1A400083B4CC /* Enemy_Flakker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_Flakker.swift; sourceTree = "<group>"; };
 		AD21B329248995AE0092B5A7 /* PC_Basic_Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PC_Basic_Bullet.swift; sourceTree = "<group>"; };
+		AD4AEA0624F57D0000B0BC01 /* Helper_Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper_Functions.swift; sourceTree = "<group>"; };
 		AD5708E92433D46600EB4C5C /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		AD62277824EC31C400946673 /* Enemy_Skirmisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_Skirmisher.swift; sourceTree = "<group>"; };
 		AD62277A24EC32B900946673 /* Enemy_Repeater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_Repeater.swift; sourceTree = "<group>"; };
 		AD776A2C24EF2259003D86D5 /* Flak_Cannon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flak_Cannon.swift; sourceTree = "<group>"; };
 		ADADD38623EDB8D1005582CB /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		ADC61C9D23E718FA00A3EDF1 /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
-		ADC61C9F23E86FF000A3EDF1 /* Firing_Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firing_Functions.swift; sourceTree = "<group>"; };
 		ADC61CA123E89DB500A3EDF1 /* Red_Target.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Red_Target.swift; sourceTree = "<group>"; };
 		ADC61CAD23E8F69400A3EDF1 /* Enemy_Behaviors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_Behaviors.swift; sourceTree = "<group>"; };
 		ADCA3B8D23DFD185000B22B5 /* Joystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joystick.swift; sourceTree = "<group>"; };
@@ -148,8 +148,8 @@
 		ADC61CAC23E8B35E00A3EDF1 /* Misc_Code */ = {
 			isa = PBXGroup;
 			children = (
+				AD4AEA0624F57D0000B0BC01 /* Helper_Functions.swift */,
 				ADC61C9D23E718FA00A3EDF1 /* Bullet.swift */,
-				ADC61C9F23E86FF000A3EDF1 /* Firing_Functions.swift */,
 				AD5708E92433D46600EB4C5C /* Wall.swift */,
 				ADE02B7624A7CEB400609E94 /* Gate.swift */,
 				ADE701ED248AAB0B0016592A /* Weapon.swift */,
@@ -372,6 +372,7 @@
 				AD5708EA2433D46600EB4C5C /* Wall.swift in Sources */,
 				ADC61C9E23E718FB00A3EDF1 /* Bullet.swift in Sources */,
 				ADE02B7724A7CEB500609E94 /* Gate.swift in Sources */,
+				AD4AEA0724F57D0000B0BC01 /* Helper_Functions.swift in Sources */,
 				ADE701F0248D8FA20016592A /* Starting_Weapon.swift in Sources */,
 				AD07D94C24EF1A400083B4CC /* Enemy_Flakker.swift in Sources */,
 				ADCA3B8E23DFD185000B22B5 /* Joystick.swift in Sources */,
@@ -381,7 +382,6 @@
 				ADEBC1F823CCCB96004332C9 /* GameViewController.swift in Sources */,
 				ADEBC1F023CCCB96004332C9 /* AppDelegate.swift in Sources */,
 				AD62277B24EC32B900946673 /* Enemy_Repeater.swift in Sources */,
-				ADC61CA023E86FF000A3EDF1 /* Firing_Functions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
