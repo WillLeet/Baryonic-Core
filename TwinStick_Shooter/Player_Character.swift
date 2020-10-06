@@ -20,7 +20,7 @@ class Player_Character: SKSpriteNode{
     var health: Int!
 
     convenience init(scale: CGFloat, game_world: GameScene){
-        self.init(imageNamed: "Proto Ship")
+        self.init(imageNamed: "PC Basic Design")
         self.setScale(scale)
         ship_scale = scale
         game_scene = game_world

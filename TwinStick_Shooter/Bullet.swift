@@ -30,7 +30,7 @@ class Bullet: SKSpriteNode{
         hitbox = self.texture!.size()
         hitbox.width *= scale
         hitbox.height *= scale
-        self.physicsBody = SKPhysicsBody(circleOfRadius: hitbox.height * 0.7)
+        self.physicsBody = SKPhysicsBody(circleOfRadius: hitbox.height * 0.5)
         self.physicsBody!.affectedByGravity = false
         
         // 'Restitution' determines how much momentum is gained or lost upon collision.

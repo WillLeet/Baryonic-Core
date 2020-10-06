@@ -12,7 +12,6 @@ import GameplayKit
 
 //This was originally a struct until I decided to let it hold itself.
 class Room{
-    var type: String = "standard"
     var west: Room?
     var east: Room?
     var north: Room?
@@ -502,6 +501,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         current_room.playerIn = false
         var arena_shift: SKAction = SKAction()
         var player_shift: SKAction = SKAction()
+        //Depending on the orientation of transition, a new room is built on the edge of the screen's relevant cardinal direction
+        //Both arenas are shifted such that the new takes the places of the old, whilst the ship is shifted in the same direction, but less far
+        //This gives the impression that the ship has moved, whilst keeping the actual bounds of the arena and game completely static!
         if(movingto == "N"){
             ycoords -= 1
             next_arena = construct_arena(room: current_room.north!, centerx: self.view!.bounds.width/2, centery: 3*self.view!.bounds.height/2, opengates: true)
@@ -514,7 +516,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if(movingto == "S"){
             ycoords += 1
             next_arena = construct_arena(room: current_room.south!, centerx: self.view!.bounds.width/2, centery: -self.view!.bounds.height/2, opengates: true)
-            //Shifts both player and arenas accordingly
             arena_shift = SKAction.moveBy(x: 0.0, y: self.view!.bounds.height, duration: 0.8)
             player_shift = SKAction.moveTo(y: self.arena_bounds.maxY, duration: 0.8)
             current_room = current_room.south!
@@ -523,7 +524,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if(movingto == "W"){
             xcoords -= 1
             next_arena = construct_arena(room: current_room.west!, centerx: self.view!.bounds.width/2 - (5.5*self.view!.bounds.width/10) + (self.view!.bounds.width/132), centery: self.view!.bounds.height/2, opengates: true)
-            //Shifts both player and arenas accordingly
             arena_shift = SKAction.moveBy(x: 5.5*self.view!.bounds.width/10 - (self.view!.bounds.width/132), y: 0.0, duration: 0.8)
             player_shift = SKAction.moveTo(x: self.arena_bounds.maxX, duration: 0.8)
             current_room = current_room.west!
@@ -532,14 +532,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if(movingto == "E"){
             xcoords += 1
             next_arena = construct_arena(room: current_room.east!, centerx: self.view!.bounds.width/2 + (5.5*self.view!.bounds.width/10)-(self.view!.bounds.width/132), centery: self.view!.bounds.height/2, opengates: true)
-            //Shifts both player and arenas accordingly
             arena_shift = SKAction.moveBy(x: -5.5*self.view!.bounds.width/10 + (self.view!.bounds.width/132), y: 0.0, duration: 0.8)
             player_shift = SKAction.moveTo(x: self.arena_bounds.minX, duration: 0.8)
             current_room = current_room.east!
             arena["east gate"]!.physicsBody!.categoryBitMask = CollisionType.Blank.rawValue
         }
+        
+        //Updates the map to show player location (and any newly discovered rooms)
         viewController.map_display.updateMap(scene: self)
-         current_room.playerIn = true
+        current_room.playerIn = true
+        current_room.seen = true
         arena_shift.timingMode = .easeInEaseOut
         player_shift.timingMode = .easeInEaseOut
         for (_, part) in arena{

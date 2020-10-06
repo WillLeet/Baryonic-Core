@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
     <device id="retina6_5" orientation="landscape" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -182,8 +184,27 @@
                                     <constraint firstAttribute="width" secondItem="8PK-sa-26r" secondAttribute="height" multiplier="39:10" id="gg3-XA-l0N"/>
                                 </constraints>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Scrap Display" translatesAutoresizingMaskIntoConstraints="NO" id="636-Aj-kmY">
+                                <rect key="frame" x="700" y="57.666666666666664" width="92" height="19.333333333333336"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="636-Aj-kmY" secondAttribute="height" multiplier="109:23" id="JIE-Cg-Faj"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yO-g0-jOH">
+                                <rect key="frame" x="705" y="58.666666666666664" width="18.666666666666629" height="16.333333333333336"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="8"/>
+                                <color key="textColor" red="0.42352941179999998" green="0.85882352939999995" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" semanticContentAttribute="forceLeftToRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l25-z6-b7M">
+                                <rect key="frame" x="768.33333333333337" y="58.666666666666664" width="18.666666666666629" height="16.333333333333336"/>
+                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="8"/>
+                                <color key="textColor" red="0.42352941179999998" green="0.85882352939999995" blue="0.90980392160000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="8ra-Hk-y2f" firstAttribute="leading" secondItem="JKb-dA-n5p" secondAttribute="leading" constant="5" id="0Gf-dx-wu8"/>
                             <constraint firstItem="IpK-8P-wmb" firstAttribute="top" secondItem="lDV-dE-Zdh" secondAttribute="top" constant="8" id="0Q7-lR-wFd"/>
@@ -196,15 +217,19 @@
                             <constraint firstItem="WHE-TU-LMf" firstAttribute="bottom" secondItem="fkS-dq-Awc" secondAttribute="bottom" constant="-30" id="39t-cl-70u"/>
                             <constraint firstItem="JKb-dA-n5p" firstAttribute="trailing" secondItem="CvD-4F-DVI" secondAttribute="trailing" constant="-5" id="3jW-Lo-v0l"/>
                             <constraint firstItem="nwX-t3-gOx" firstAttribute="leading" secondItem="LCf-eo-L0h" secondAttribute="leading" constant="10" id="4d3-dC-hJM"/>
+                            <constraint firstItem="NVB-88-u7e" firstAttribute="leading" secondItem="636-Aj-kmY" secondAttribute="trailing" constant="10" id="6TU-Jf-kFd"/>
                             <constraint firstItem="LCf-eo-L0h" firstAttribute="leading" secondItem="fkS-dq-Awc" secondAttribute="leading" constant="10" id="6hM-eA-Rs6"/>
                             <constraint firstItem="xGN-Ls-moB" firstAttribute="centerX" secondItem="3se-qz-xqx" secondAttribute="centerX" id="6p2-Kq-DlH"/>
                             <constraint firstItem="LMa-E6-VQu" firstAttribute="trailing" secondItem="JKb-dA-n5p" secondAttribute="trailing" constant="-4" id="7ed-lH-3UR"/>
                             <constraint firstItem="nwX-t3-gOx" firstAttribute="bottom" secondItem="LCf-eo-L0h" secondAttribute="bottom" constant="-6" id="7gv-7I-qaH"/>
                             <constraint firstItem="r8e-aU-e9s" firstAttribute="leading" secondItem="8ra-Hk-y2f" secondAttribute="trailing" constant="6" id="7ky-V9-5mZ"/>
                             <constraint firstItem="lDV-dE-Zdh" firstAttribute="leading" secondItem="6pM-LY-WpR" secondAttribute="leading" constant="10" id="8Ce-5X-xI6"/>
+                            <constraint firstItem="CvD-4F-DVI" firstAttribute="top" secondItem="636-Aj-kmY" secondAttribute="bottom" constant="6" id="8rd-Uw-zBN"/>
                             <constraint firstItem="WHE-TU-LMf" firstAttribute="trailing" secondItem="fkS-dq-Awc" secondAttribute="trailing" constant="-10" id="9iF-6J-BAR"/>
                             <constraint firstItem="3G8-Bv-wfo" firstAttribute="trailing" secondItem="m3w-gw-BMk" secondAttribute="trailing" constant="-5" id="9rd-10-fT9"/>
                             <constraint firstItem="Clj-qk-ABH" firstAttribute="leading" secondItem="y1M-Jc-IxN" secondAttribute="trailing" constant="-11" id="ALe-bE-o1N"/>
+                            <constraint firstItem="1yO-g0-jOH" firstAttribute="leading" secondItem="636-Aj-kmY" secondAttribute="leading" constant="5" id="Agd-Xl-LGJ"/>
+                            <constraint firstItem="6pM-LY-WpR" firstAttribute="leading" secondItem="636-Aj-kmY" secondAttribute="leading" constant="-10" id="C7x-d3-Oyf"/>
                             <constraint firstItem="4PY-hb-tqd" firstAttribute="width" secondItem="4PY-hb-tqd" secondAttribute="height" multiplier="1:1" id="Cay-Qf-IGD"/>
                             <constraint firstItem="LMa-E6-VQu" firstAttribute="bottom" secondItem="JKb-dA-n5p" secondAttribute="bottom" constant="-5" id="CnL-ta-uo0"/>
                             <constraint firstAttribute="bottom" secondItem="fkS-dq-Awc" secondAttribute="bottom" id="E5v-gn-JOu"/>
@@ -222,6 +247,7 @@
                             <constraint firstItem="4PY-hb-tqd" firstAttribute="top" secondItem="mZB-rL-I3h" secondAttribute="top" constant="30" id="JhY-f4-VCq"/>
                             <constraint firstItem="NVB-88-u7e" firstAttribute="bottom" secondItem="6pM-LY-WpR" secondAttribute="top" constant="50" id="Kiz-pv-dFB"/>
                             <constraint firstItem="fkS-dq-Awc" firstAttribute="leading" secondItem="hmS-LZ-8eW" secondAttribute="trailing" id="Ly8-cI-Vi7"/>
+                            <constraint firstItem="1yO-g0-jOH" firstAttribute="top" secondItem="636-Aj-kmY" secondAttribute="top" constant="1" id="Mfm-Ka-vjQ"/>
                             <constraint firstItem="54Z-vj-lne" firstAttribute="leading" secondItem="CvD-4F-DVI" secondAttribute="leading" constant="5" id="Mvh-9p-ce1"/>
                             <constraint firstItem="6SJ-eg-esn" firstAttribute="top" secondItem="54Z-vj-lne" secondAttribute="top" constant="3" id="NVg-YV-C5Y"/>
                             <constraint firstItem="y1M-Jc-IxN" firstAttribute="leading" secondItem="WHE-TU-LMf" secondAttribute="leading" constant="7" id="NwP-tT-NIf"/>
@@ -235,9 +261,11 @@
                             <constraint firstItem="6pM-LY-WpR" firstAttribute="leading" secondItem="xGN-Ls-moB" secondAttribute="trailing" id="R0N-IE-pvF"/>
                             <constraint firstItem="Clj-qk-ABH" firstAttribute="top" secondItem="WHE-TU-LMf" secondAttribute="top" constant="8" id="SDi-Xh-7mt"/>
                             <constraint firstItem="lDV-dE-Zdh" firstAttribute="top" secondItem="mZB-rL-I3h" secondAttribute="bottom" constant="5" id="SxC-Hb-tSi"/>
+                            <constraint firstItem="l25-z6-b7M" firstAttribute="trailing" secondItem="636-Aj-kmY" secondAttribute="trailing" constant="-5" id="UCi-oT-au8"/>
                             <constraint firstItem="54Z-vj-lne" firstAttribute="trailing" secondItem="8PK-sa-26r" secondAttribute="trailing" constant="6" id="VKt-h5-CwN"/>
                             <constraint firstItem="SYq-m1-gfr" firstAttribute="centerX" secondItem="mZB-rL-I3h" secondAttribute="centerX" id="Wen-UY-b1m"/>
                             <constraint firstItem="m3w-gw-BMk" firstAttribute="top" secondItem="hT5-2k-dTA" secondAttribute="top" constant="4" id="X9A-dS-iES"/>
+                            <constraint firstItem="l25-z6-b7M" firstAttribute="bottom" secondItem="636-Aj-kmY" secondAttribute="bottom" constant="-2" id="XD7-vG-KXC"/>
                             <constraint firstItem="6SJ-eg-esn" firstAttribute="trailing" secondItem="8PK-sa-26r" secondAttribute="leading" constant="-8" id="Xt9-B4-kM5"/>
                             <constraint firstItem="mZB-rL-I3h" firstAttribute="top" secondItem="CvD-4F-DVI" secondAttribute="bottom" constant="-1.5" id="Yjv-yM-G1D"/>
                             <constraint firstItem="LCf-eo-L0h" firstAttribute="trailing" secondItem="fkS-dq-Awc" secondAttribute="trailing" constant="-10" id="YrI-bD-DcM"/>
@@ -276,6 +304,7 @@
                             <constraint firstItem="xGN-Ls-moB" firstAttribute="width" secondItem="3se-qz-xqx" secondAttribute="width" multiplier="0.54" id="t1o-eQ-dvs"/>
                             <constraint firstItem="6pM-LY-WpR" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" id="t35-AE-IVD"/>
                             <constraint firstItem="JKb-dA-n5p" firstAttribute="bottom" secondItem="CvD-4F-DVI" secondAttribute="bottom" constant="-5" id="t9U-fY-ii2"/>
+                            <constraint firstItem="1yO-g0-jOH" firstAttribute="bottom" secondItem="636-Aj-kmY" secondAttribute="bottom" constant="-2" id="tBM-jV-uW7"/>
                             <constraint firstItem="r8e-aU-e9s" firstAttribute="centerY" secondItem="JKb-dA-n5p" secondAttribute="centerY" id="tk0-Ab-Leu"/>
                             <constraint firstItem="lDV-dE-Zdh" firstAttribute="trailing" secondItem="6pM-LY-WpR" secondAttribute="trailing" constant="-10" id="uR2-VT-5hU"/>
                             <constraint firstItem="54Z-vj-lne" firstAttribute="trailing" secondItem="CvD-4F-DVI" secondAttribute="trailing" constant="-5" id="urO-M1-9sf"/>
@@ -286,12 +315,12 @@
                             <constraint firstItem="r8e-aU-e9s" firstAttribute="width" secondItem="r8e-aU-e9s" secondAttribute="height" multiplier="39:10" id="wDo-Ho-tC2"/>
                             <constraint firstItem="8PK-sa-26r" firstAttribute="centerY" secondItem="54Z-vj-lne" secondAttribute="centerY" id="wZc-A1-uUz"/>
                             <constraint firstItem="mZB-rL-I3h" firstAttribute="trailing" secondItem="6pM-LY-WpR" secondAttribute="trailing" constant="-10" id="wnk-mT-YKE"/>
+                            <constraint firstItem="l25-z6-b7M" firstAttribute="top" secondItem="636-Aj-kmY" secondAttribute="top" constant="1" id="x61-fi-i6K"/>
                             <constraint firstItem="hT5-2k-dTA" firstAttribute="leading" secondItem="fkS-dq-Awc" secondAttribute="leading" constant="8" id="zIR-IQ-JMH"/>
                             <constraint firstItem="4PY-hb-tqd" firstAttribute="bottom" secondItem="mZB-rL-I3h" secondAttribute="bottom" constant="-5" id="zSc-ug-rwN"/>
                             <constraint firstAttribute="bottom" secondItem="xGN-Ls-moB" secondAttribute="bottom" id="zbP-YG-5HT"/>
                             <constraint firstItem="y1M-Jc-IxN" firstAttribute="top" secondItem="WHE-TU-LMf" secondAttribute="top" constant="6" id="zbY-VU-PoQ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
                     <connections>
                         <outlet property="ability1_chargeDisplay" destination="8PK-sa-26r" id="MPk-Cy-6Nt"/>
@@ -304,6 +333,8 @@
                         <outlet property="health_status" destination="3G8-Bv-wfo" id="VVm-wi-FtA"/>
                         <outlet property="map_display" destination="nwX-t3-gOx" id="f0T-pS-Te5"/>
                         <outlet property="movestick_base" destination="Clj-qk-ABH" id="gkH-Ph-K4M"/>
+                        <outlet property="scrap_count" destination="l25-z6-b7M" id="xLG-s3-8J9"/>
+                        <outlet property="scrap_label" destination="1yO-g0-jOH" id="CjS-QI-JSR"/>
                         <outlet property="shootstick_base" destination="IpK-8P-wmb" id="BNX-sO-xj8"/>
                     </connections>
                 </viewController>
@@ -330,6 +361,10 @@
         <image name="Movepad Unpressed" width="189" height="189"/>
         <image name="No Ability" width="127" height="54"/>
         <image name="Pause Button" width="80" height="81"/>
+        <image name="Scrap Display" width="215" height="44"/>
         <image name="Shootpad Unpressed" width="195" height="195"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

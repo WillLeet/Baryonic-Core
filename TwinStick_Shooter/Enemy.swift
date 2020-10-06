@@ -21,12 +21,14 @@ class Enemy: SKSpriteNode{
     var ship_model: SKTexture!
     var ship_num: Int!
     var opponent: Player_Character!
+    var scrap_value: Int!
     
     convenience init(sprite: String, scale: CGFloat, game_world: GameScene, hp: Int){
         self.init(imageNamed: sprite)
         self.setScale(scale)
         ship_scale = scale
         game_scene = game_world
+        scrap_value = Int.random(in: 1...15)
         
         //Updates enemy count and logs ship in the 'current enemies' dictionary
         //The ship's key is saved as 'ship_num' so it can remove itself when killed
@@ -76,6 +78,7 @@ class Enemy: SKSpriteNode{
         if(game_scene.enemy_count==0 && game_scene.current_room.status == "uncleared"){
             game_scene.roomClear()
         }
+        game_scene.viewController.updateScrap(value: scrap_value)
         //print(game_scene.current_room.status)
         //print(game_scene.current_room.north?.status as Any)
     }

@@ -30,7 +30,7 @@ class Enemy_Flakker: Enemy{
         let between_shots = SKAction.wait(forDuration: self.weapon.get_fire_rate())
         let firing_seq = SKAction.sequence([between_shots,attack])
         let salvo = SKAction.repeat(firing_seq, count: 4)
-        let between_salvos = SKAction.wait(forDuration: 2)
+        let between_salvos = SKAction.wait(forDuration: 2.4)
         let firing_behavior = SKAction.repeatForever(SKAction.sequence([salvo,between_salvos]))
         let movement_behavior = cautious_behavior(scene: game_scene, ship: self, opponent: opponent)
         self.run(firing_behavior)

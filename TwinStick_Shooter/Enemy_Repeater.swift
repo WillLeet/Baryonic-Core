@@ -16,7 +16,7 @@ class Enemy_Repeater: Weapon{
     var left: Bool = true
 
     convenience init(game_world: GameScene!, user: Enemy!, barrel_len: CGFloat){
-        self.init(game_world: game_world, ship: user, barrel: barrel_len, firespeed: 4, firerate: 0.3)
+        self.init(game_world: game_world, ship: user, barrel: barrel_len, firespeed: 3, firerate: 0.3)
     }
     
     override func fire(angle: CGFloat){
@@ -41,7 +41,7 @@ class Enemy_Repeater: Weapon{
         to_shoot.position = CGPoint(x: shooter.position.x - barrel_coords1[0] - barrel_coords2[0], y: shooter.position.y + barrel_coords1[1] + barrel_coords2[1])
            
         //Builds vector used to apply force to bullet
-        let trajectory_circle = point_on_circle(angle: angle, circle_size: get_fire_speed()/6)
+        let trajectory_circle = point_on_circle(angle: angle, circle_size: get_fire_speed()/8)
         let fire = SKAction.applyForce(CGVector(dx: -trajectory_circle[0], dy: trajectory_circle[1]), duration: 0.1)
            
         //Fires bullet, removes it after 15 seconds (should never exist that long anyway)

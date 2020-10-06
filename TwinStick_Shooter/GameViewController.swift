@@ -26,6 +26,10 @@ class GameViewController: UIViewController {
     var ability1_type: String = "BAMF"
     var ability2_type: String = "No Ability"
     
+    @IBOutlet weak var scrap_label: UILabel!
+    @IBOutlet weak var scrap_count: UILabel!
+    var scrap_total: Int! = 0
+    
     @IBOutlet weak var ability1_chargeDisplay: UIImageView!
     @IBOutlet weak var ability2_chargeDisplay: UIImageView!
     @IBOutlet weak var ability2_status: UILabel!
@@ -45,9 +49,6 @@ class GameViewController: UIViewController {
                 // Present the scene
                 view.presentScene(scene)
                 game = scene
-                health_label.text = "HULL INTEGRITY: "
-                health_status.text = "NOMINAL"
-                health_status.textColor = UIColor(hue: 0.3, saturation: 0.41, brightness: 1, alpha: 1)
                 //movestick.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
                 //self.view.addSubview(movestick)
                 
@@ -62,11 +63,16 @@ class GameViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
+        health_label.text = "HULL INTEGRITY: "
+        health_status.text = "NOMINAL"
+        health_status.textColor = UIColor(hue: 0.3, saturation: 0.41, brightness: 1, alpha: 1)
         ability1_label.numberOfLines = 2
         ability1_label.text = "B.A.M.F\nCHARGES"
         ability2_label.numberOfLines = 2
         ability2_label.text = ""
         ability2_status.text = "NO CONTINGENCY"
+        scrap_label.text = "SCRAP:"
+        scrap_count.text = String(scrap_total)
     }
     
     /*
@@ -133,6 +139,11 @@ class GameViewController: UIViewController {
             let spritename: String = type + String(charges)
             display.image = UIImage(named: spritename)
         }
+    }
+    
+    func updateScrap(value: Int){
+        scrap_total += value
+        scrap_count.text = String(scrap_total)
     }
     
     @IBAction func ability1(_ sender: Any) {

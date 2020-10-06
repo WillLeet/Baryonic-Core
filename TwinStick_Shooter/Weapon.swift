@@ -73,7 +73,7 @@ class Weapon: NSObject{
         to_shoot.position = CGPoint(x: shooter.position.x - barrel_coords[0], y: shooter.position.y + barrel_coords[1])
            
         //Builds vector used to apply force to bullet
-        let trajectory_circle = point_on_circle(angle: angle, circle_size: firing_speed/6)
+        let trajectory_circle = point_on_circle(angle: angle, circle_size: firing_speed/8)
         let fire = SKAction.applyForce(CGVector(dx: -trajectory_circle[0], dy: trajectory_circle[1]), duration: 0.1)
            
         //Fires bullet, removes it after 15 seconds (should never exist that long anyway)

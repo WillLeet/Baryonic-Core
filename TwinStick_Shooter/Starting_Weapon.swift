@@ -14,7 +14,7 @@ import GameplayKit
 class Starting_Weapon: Weapon{
     
     convenience init(game_world: GameScene!, pcship: Player_Character!, barrel_len: CGFloat){
-        self.init(game_world: game_world, ship: pcship, barrel: barrel_len, firespeed: 10, firerate: 0.3)
+        self.init(game_world: game_world, ship: pcship, barrel: barrel_len, firespeed: 5, firerate: 0.3)
     }
     
     override func fire(angle: CGFloat){

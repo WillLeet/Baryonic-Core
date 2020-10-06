@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AD07D94C24EF1A400083B4CC /* Enemy_Flakker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD07D94B24EF1A400083B4CC /* Enemy_Flakker.swift */; };
 		AD21B32A248995AE0092B5A7 /* PC_Basic_Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD21B329248995AE0092B5A7 /* PC_Basic_Bullet.swift */; };
+		AD23C12B24F5E5A6005BB6C8 /* Enemy_Flak_Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD23C12A24F5E5A6005BB6C8 /* Enemy_Flak_Bullet.swift */; };
 		AD4AEA0724F57D0000B0BC01 /* Helper_Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4AEA0624F57D0000B0BC01 /* Helper_Functions.swift */; };
 		AD5708EA2433D46600EB4C5C /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD5708E92433D46600EB4C5C /* Wall.swift */; };
 		AD62277924EC31C400946673 /* Enemy_Skirmisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD62277824EC31C400946673 /* Enemy_Skirmisher.swift */; };
@@ -59,6 +60,7 @@
 /* Begin PBXFileReference section */
 		AD07D94B24EF1A400083B4CC /* Enemy_Flakker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_Flakker.swift; sourceTree = "<group>"; };
 		AD21B329248995AE0092B5A7 /* PC_Basic_Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PC_Basic_Bullet.swift; sourceTree = "<group>"; };
+		AD23C12A24F5E5A6005BB6C8 /* Enemy_Flak_Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_Flak_Bullet.swift; sourceTree = "<group>"; };
 		AD4AEA0624F57D0000B0BC01 /* Helper_Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper_Functions.swift; sourceTree = "<group>"; };
 		AD5708E92433D46600EB4C5C /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		AD62277824EC31C400946673 /* Enemy_Skirmisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_Skirmisher.swift; sourceTree = "<group>"; };
@@ -162,8 +164,9 @@
 			children = (
 				ADE701F4248EA90A0016592A /* Enemy_Pistol.swift */,
 				AD62277A24EC32B900946673 /* Enemy_Repeater.swift */,
-				ADE701F6248EA9A90016592A /* Enemy_Basic_Bullet.swift */,
 				AD776A2C24EF2259003D86D5 /* Flak_Cannon.swift */,
+				ADE701F6248EA9A90016592A /* Enemy_Basic_Bullet.swift */,
+				AD23C12A24F5E5A6005BB6C8 /* Enemy_Flak_Bullet.swift */,
 			);
 			name = Enemy_Weapons;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				ADEBC1F623CCCB96004332C9 /* GameScene.swift in Sources */,
 				AD776A2D24EF2259003D86D5 /* Flak_Cannon.swift in Sources */,
 				ADCA3B9023DFDC05000B22B5 /* Player_Character.swift in Sources */,
+				AD23C12B24F5E5A6005BB6C8 /* Enemy_Flak_Bullet.swift in Sources */,
 				AD62277924EC31C400946673 /* Enemy_Skirmisher.swift in Sources */,
 				ADE701F2248DC8280016592A /* Basic_Enemy.swift in Sources */,
 				AD21B32A248995AE0092B5A7 /* PC_Basic_Bullet.swift in Sources */,
