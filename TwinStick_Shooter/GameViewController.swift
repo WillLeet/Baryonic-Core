@@ -27,7 +27,6 @@ class GameViewController: UIViewController {
     var ability2_type: String = "No Ability"
     
     @IBOutlet weak var scrap_label: UILabel!
-    @IBOutlet weak var scrap_count: UILabel!
     var scrap_total: Int! = 0
     
     @IBOutlet weak var ability1_chargeDisplay: UIImageView!
@@ -35,6 +34,10 @@ class GameViewController: UIViewController {
     @IBOutlet weak var ability2_status: UILabel!
     @IBOutlet weak var ability1_label: UILabel!
     @IBOutlet weak var ability2_label: UILabel!
+    
+    var scrap_test = Scrap_Counter()
+    
+    @IBOutlet weak var scrap_count: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,12 +54,10 @@ class GameViewController: UIViewController {
                 game = scene
                 //movestick.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
                 //self.view.addSubview(movestick)
-                
 
             }
             
             view.ignoresSiblingOrder = true
-            
             view.showsFPS = true
             view.showsNodeCount = true
         }
@@ -72,7 +73,8 @@ class GameViewController: UIViewController {
         ability2_label.text = ""
         ability2_status.text = "NO CONTINGENCY"
         scrap_label.text = "SCRAP:"
-        scrap_count.text = String(scrap_total)
+        scrap_count.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        scrap_count.text = "0"
     }
     
     /*
@@ -101,34 +103,35 @@ class GameViewController: UIViewController {
     }
     
     func updateHealth(health: Int){
+        
         let health_percent: String = "Health "+String(health * 10)+"%"
         //print(health_percent)
         health_bar.image = UIImage(named: health_percent)
         if(health>8){
-            health_status.text = "NOMINAL"
+            //health_status.text = "NOMINAL"
             health_status.textColor = UIColor(hue: 0.3, saturation: 0.41, brightness: 1, alpha: 1)
-            health_label.text = "HULL INTEGRITY: "
+            //health_label.text = "HULL INTEGRITY: "
             health_label.textColor = UIColor(red: 0.423529, green: 0.858824, blue: 0.909804, alpha: 1)
         }
         else if(health>6){
-            health_status.text = "STABLE"
+            //health_status.text = "STABLE"
             health_status.textColor = UIColor(hue: 0.25, saturation: 0.41, brightness: 1, alpha: 1)
         }
         else if(health>4){
-            health_status.text = "DAMAGED"
+            //health_status.text = "DAMAGED"
             health_status.textColor = UIColor(hue: 0.2, saturation: 0.41, brightness: 1, alpha: 1)
         }
         else if(health>2){
-            health_status.text = "BREACHED"
+            //health_status.text = "BREACHED"
             health_status.textColor = UIColor(hue: 0.1, saturation: 0.41, brightness: 1, alpha: 1)
         }
         else if(health>0){
-            health_status.text = "CRITICAL"
+            //health_status.text = "CRITICAL"
             health_status.textColor = UIColor(hue: 0.0, saturation: 0.41, brightness: 1, alpha: 1)
         } else {
-            health_status.text = ""
+            //health_status.text = ""
             health_label.textColor = UIColor(hue: 0.0, saturation: 0.8, brightness: 1, alpha: 1)
-            health_label.text = "ERROR\\%-ERR{OR--;;ERR"
+            //health_label.text = "ERROR\\%-ERR{OR--;;ERR"
         }
     }
     
@@ -143,6 +146,7 @@ class GameViewController: UIViewController {
     
     func updateScrap(value: Int){
         scrap_total += value
+        scrap_test.increment(val: value)
         scrap_count.text = String(scrap_total)
     }
     
