@@ -18,7 +18,7 @@ class Enemy_Skirmisher: Enemy{
     var weapon: Weapon!
     
     convenience init(scale: CGFloat, game_world: GameScene){
-        self.init(sprite: "Skirmisher", scale: scale, game_world: game_world, hp: 4)
+        self.init(sprite: "Skirmisher", scale: scale, game_world: game_world, hp: 4, hitbox: 0.5)
         weapon = Enemy_Repeater(game_world: game_scene, user: self, barrel_len: (self.frame.height/2))
     }
     

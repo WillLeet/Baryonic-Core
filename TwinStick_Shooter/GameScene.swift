@@ -18,6 +18,7 @@ class Room{
     var south: Room?
     var status: String = "uncleared"
     var seen: Bool = false
+    var visited: Bool = false
     var playerIn: Bool = false
     init() { }
 }
@@ -484,6 +485,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         xcoords = 3
         ycoords = 4
         current_room = current_level[xcoords][ycoords]
+        current_room.playerIn = true
+        current_room.visited = true
+        current_room.north?.seen = true
+        current_room.south?.seen = true
+        current_room.east?.seen = true
+        current_room.west?.seen = true  
         arena = construct_arena(room: current_room, centerx: self.view!.bounds.width/2, centery: self.view!.bounds.height/2, opengates: false)
     }
     
@@ -539,9 +546,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         //Updates the map to show player location (and any newly discovered rooms)
-        viewController.map_display.updateMap(scene: self)
         current_room.playerIn = true
-        current_room.seen = true
+        current_room.visited = true
+        current_room.north?.seen = true
+        current_room.south?.seen = true
+        current_room.east?.seen = true
+        current_room.west?.seen = true 
+        viewController.map_display.updateMap(scene: self)
         arena_shift.timingMode = .easeInEaseOut
         player_shift.timingMode = .easeInEaseOut
         for (_, part) in arena{
@@ -589,14 +600,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //Spawns target
         let newtarget = SKAction.run{
             //Spawns enemy, immediately runs its behavior
-            //let enemy = Enemy_Skirmisher(scale: 0.2, game_world: self)
-            //self.spawn(tospawn: enemy)
+            let enemy = Basic_Enemy(scale: 0.25, game_world: self)
+            self.spawn(tospawn: enemy)
             //let enemy2 = Enemy_Flakker(scale: 0.22, game_world: self)
             //self.spawn(tospawn: enemy2)
-            let enemy3 = Basic_Enemy(scale: 0.25, game_world: self)
-            self.spawn(tospawn: enemy3)
+            //let enemy3 = Enemy_Triangulator(scale: 0.22, game_world: self)
+            //self.spawn(tospawn: enemy3)
         }
-        let spawning = SKAction.repeat(newtarget,count: 2)
+        let spawning = SKAction.repeat(newtarget,count: 1)
         self.run(spawning)
     }
     

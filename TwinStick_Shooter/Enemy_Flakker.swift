@@ -18,7 +18,7 @@ class Enemy_Flakker: Enemy{
     var weapon: Weapon!
     
     convenience init(scale: CGFloat, game_world: GameScene){
-        self.init(sprite: "Flakker_0", scale: scale, game_world: game_world, hp: 5)
+        self.init(sprite: "Flakker_0", scale: scale, game_world: game_world, hp: 5, hitbox: 0.5)
         weapon = Flak_Cannon(game_world: game_scene, user: self, barrel_len: (self.frame.height/1.8))
     }
     

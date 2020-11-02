@@ -18,7 +18,7 @@ class Basic_Enemy: Enemy{
     var weapon: Weapon!
     
     convenience init(scale: CGFloat, game_world: GameScene){
-        self.init(sprite: "Basic Enemy", scale: scale, game_world: game_world, hp: 3)
+        self.init(sprite: "Basic Enemy", scale: scale, game_world: game_world, hp: 3, hitbox: 0.5)
         weapon = Enemy_Pistol(game_world: game_scene, user: self, barrel_len: (self.frame.height/2))
     }
     

@@ -17,7 +17,7 @@ import GameplayKit
 class Red_Target: Enemy{
     
     convenience init(scale: CGFloat, game_world: GameScene){
-        self.init(sprite: "Proto Target", scale: scale, game_world: game_world, hp: 3)
+        self.init(sprite: "Proto Target", scale: scale, game_world: game_world, hp: 3, hitbox: 0.5)
     }
     
     override func deploy() {

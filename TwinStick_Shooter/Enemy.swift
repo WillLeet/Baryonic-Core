@@ -22,13 +22,15 @@ class Enemy: SKSpriteNode{
     var ship_num: Int!
     var opponent: Player_Character!
     var scrap_value: Int!
+    var hitbox_scale: CGFloat!
     
-    convenience init(sprite: String, scale: CGFloat, game_world: GameScene, hp: Int){
+    convenience init(sprite: String, scale: CGFloat, game_world: GameScene, hp: Int, hitbox: CGFloat){
         self.init(imageNamed: sprite)
         self.setScale(scale)
         ship_scale = scale
         game_scene = game_world
         scrap_value = Int.random(in: 1...15)
+        hitbox_scale = hitbox
         
         //Updates enemy count and logs ship in the 'current enemies' dictionary
         //The ship's key is saved as 'ship_num' so it can remove itself when killed
@@ -47,7 +49,7 @@ class Enemy: SKSpriteNode{
         var hitbox: CGSize = self.texture!.size()
         hitbox.width *= scale
         hitbox.height *= scale
-        self.physicsBody = SKPhysicsBody(circleOfRadius: hitbox.width * 0.5)
+        self.physicsBody = SKPhysicsBody(circleOfRadius: hitbox.width * hitbox_scale)
         self.physicsBody!.affectedByGravity = false
         
         //Bitmask labelled as "Enemy", triggers didBegin on contact with player bullets
