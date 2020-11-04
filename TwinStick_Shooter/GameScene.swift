@@ -44,7 +44,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var xcoords: Int = 0
     var ycoords: Int = 0
     var safety_off: Bool = true
-    
+    var danger: Int = 10
+    var spawner: Spawner!
+    var current_spawns: Dictionary<Int, [String]> = [5: ["Enemy Triangulator"], 3: ["Enemy Flakker"], 2: ["Enemy Skirmisher"], 1: ["Basic Enemy"]]
     
     
     
@@ -63,7 +65,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(movement_stick)
         let movement_base: SKSpriteNode = movement_stick.get_base()
         self.addChild(movement_base)
-        //movement_base.position = CGPoint(x: self.view!.bounds.width/8, y: 24*self.view!.bounds.height/100)
         movement_base.position = CGPoint(x: 32.0+viewController.movestick_base.frame.width/2-viewController.movestick_base.frame.width/15, y: 38.0+viewController.movestick_base.frame.height/2-viewController.movestick_base.frame.height/15)
         movement_stick.position = movement_base.position
         
@@ -72,7 +73,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(shooting_stick)
         let shooting_base: SKSpriteNode = shooting_stick.get_base()
         self.addChild(shooting_base)
-        //shooting_base.position = CGPoint(x: (7 * self.view!.bounds.width/8), y: self.view!.bounds.height/5)
         shooting_base.position = CGPoint(x: self.view!.bounds.width-32.0-viewController.movestick_base.frame.width/2+viewController.movestick_base.frame.width/15, y: 38.0+viewController.movestick_base.frame.height/2-viewController.movestick_base.frame.height/15)
         shooting_stick.position = shooting_base.position
         
@@ -101,8 +101,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //let bounds_test = SKSpriteNode(color: UIColor.systemRed, size: arena_bounds.size)
         //bounds_test.position = CGPoint(x: arena_bounds.midX, y: arena_bounds.midY)
         //self.addChild(bounds_test)
+    
+        spawner = Spawner(game_world: self, danger_val: danger)
+        spawner.setSpawns(current_spawns)
+        spawner.Spawn()
         
-        spawn_enemies()
  
         //For whatever reason, the code needs a moment before it figures out how big frames are
         //Delaying the initial map draw lets it work this out so that it *doesn't* draw the first map square in the wrong place and size for some reason
@@ -240,7 +243,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     //Function for spawning enemies
-    func spawn(tospawn: Enemy){
+    func spawn(_ tospawn: Enemy){
         //Randomly generates spawn point within arena bounds
         let spawnx = CGFloat.random(in: self.arena_bounds.minX...self.arena_bounds.maxX)
         let spawny = CGFloat.random(in: self.arena_bounds.minY...self.arena_bounds.maxY)
@@ -578,7 +581,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         self.safety_off = true
                         },
                     SKAction.wait(forDuration: 0.3),
-                    SKAction.run{self.spawn_enemies()}
+                        SKAction.run{self.spawner.Spawn()}
                     ]))
                 }
             }
@@ -595,21 +598,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //print("New coordinates: ",xcoords,",",ycoords)
     }
     
-    //Prototype enemy spawning function
-    func spawn_enemies(){
-        //Spawns target
-        let newtarget = SKAction.run{
-            //Spawns enemy, immediately runs its behavior
-            let enemy = Basic_Enemy(scale: 0.25, game_world: self)
-            self.spawn(tospawn: enemy)
-            //let enemy2 = Enemy_Flakker(scale: 0.22, game_world: self)
-            //self.spawn(tospawn: enemy2)
-            //let enemy3 = Enemy_Triangulator(scale: 0.22, game_world: self)
-            //self.spawn(tospawn: enemy3)
-        }
-        let spawning = SKAction.repeat(newtarget,count: 1)
-        self.run(spawning)
-    }
     
     //triggers when a room is cleared!
     func roomClear(){

@@ -17,6 +17,7 @@
 		AD776A2D24EF2259003D86D5 /* Flak_Cannon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD776A2C24EF2259003D86D5 /* Flak_Cannon.swift */; };
 		ADA401FF254E1A3F00A96623 /* Tri_Blaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA401FE254E1A3F00A96623 /* Tri_Blaster.swift */; };
 		ADA40212254E1CE500A96623 /* Enemy_Triangulator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA40211254E1CE500A96623 /* Enemy_Triangulator.swift */; };
+		ADA4022B25533AD600A96623 /* Spawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADA4022A25533AD600A96623 /* Spawner.swift */; };
 		ADADD38723EDB8D1005582CB /* Enemy.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADADD38623EDB8D1005582CB /* Enemy.swift */; };
 		ADC61C9E23E718FB00A3EDF1 /* Bullet.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61C9D23E718FA00A3EDF1 /* Bullet.swift */; };
 		ADC61CA223E89DB500A3EDF1 /* Red_Target.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC61CA123E89DB500A3EDF1 /* Red_Target.swift */; };
@@ -70,6 +71,7 @@
 		AD776A2C24EF2259003D86D5 /* Flak_Cannon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flak_Cannon.swift; sourceTree = "<group>"; };
 		ADA401FE254E1A3F00A96623 /* Tri_Blaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tri_Blaster.swift; sourceTree = "<group>"; };
 		ADA40211254E1CE500A96623 /* Enemy_Triangulator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy_Triangulator.swift; sourceTree = "<group>"; };
+		ADA4022A25533AD600A96623 /* Spawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spawner.swift; sourceTree = "<group>"; };
 		ADADD38623EDB8D1005582CB /* Enemy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enemy.swift; sourceTree = "<group>"; };
 		ADC61C9D23E718FA00A3EDF1 /* Bullet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bullet.swift; sourceTree = "<group>"; };
 		ADC61CA123E89DB500A3EDF1 /* Red_Target.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Red_Target.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				AD5708E92433D46600EB4C5C /* Wall.swift */,
 				ADE02B7624A7CEB400609E94 /* Gate.swift */,
 				ADE701ED248AAB0B0016592A /* Weapon.swift */,
+				ADA4022A25533AD600A96623 /* Spawner.swift */,
 			);
 			name = Misc_Code;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 				ADE701F2248DC8280016592A /* Basic_Enemy.swift in Sources */,
 				AD21B32A248995AE0092B5A7 /* PC_Basic_Bullet.swift in Sources */,
 				ADE701F7248EA9A90016592A /* Enemy_Basic_Bullet.swift in Sources */,
+				ADA4022B25533AD600A96623 /* Spawner.swift in Sources */,
 				ADE701F5248EA90A0016592A /* Enemy_Pistol.swift in Sources */,
 				ADE701EE248AAB0B0016592A /* Weapon.swift in Sources */,
 				AD5708EA2433D46600EB4C5C /* Wall.swift in Sources */,

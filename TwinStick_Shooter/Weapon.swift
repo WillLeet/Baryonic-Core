@@ -13,7 +13,7 @@ import UIKit
 import SpriteKit
 import GameplayKit
 
-class Weapon: NSObject{
+class Weapon{
     
     private var ready_to_fire: Bool = true
     var game_scene: GameScene!

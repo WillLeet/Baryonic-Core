@@ -63,7 +63,7 @@ class MapView: UIView {
                     dcolor = CGColor(red: 0.3, green: 0.8, blue: 1.0, alpha: 1.0)
                     display.append(MapSquare(frame: drect, color: dcolor))
                 } else if(scene.current_level[x][y].seen){
-                    dcolor = CGColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 0.6)
+                    dcolor = CGColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 0.4)
                     display.append(MapSquare(frame: drect, color: dcolor))
                 }
             }
