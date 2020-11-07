@@ -41,6 +41,9 @@ class Player_Character: SKSpriteNode{
         self.physicsBody!.collisionBitMask = CollisionType.Wall.rawValue
         self.physicsBody!.categoryBitMask = CollisionType.Player.rawValue
         self.physicsBody!.contactTestBitMask = CollisionType.Enemy_Bullet.rawValue | CollisionType.Gate.rawValue
+        
+        //Sets zposition as "Player" type
+        self.zPosition = ZPositions.Player.rawValue
     }
     
     //Handles the ship's movement on a frame-by frame basis.
@@ -97,6 +100,7 @@ class Player_Character: SKSpriteNode{
     
     func bamf(){
         let bamf = SKSpriteNode(imageNamed: "BAMF")
+        bamf.zPosition = ZPositions.Blank.rawValue
         bamf.setScale(0.1)
         let hitbox_form = SKAction.run{
         bamf.physicsBody = SKPhysicsBody(circleOfRadius: bamf.size.width * bamf.xScale)

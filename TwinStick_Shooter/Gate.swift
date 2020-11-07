@@ -28,6 +28,7 @@ class Gate: Wall{
             self.physicsBody!.contactTestBitMask = CollisionType.Player.rawValue
             self.alpha = 0.0
         }
+        //Denotes the gate as a north, south, east, or west gate, allowing for accurate room transitions
         direction = place
     }
     

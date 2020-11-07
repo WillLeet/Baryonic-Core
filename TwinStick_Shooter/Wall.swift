@@ -38,6 +38,9 @@ class Wall: SKSpriteNode{
         self.physicsBody!.categoryBitMask = CollisionType.Wall.rawValue
         self.physicsBody!.collisionBitMask = CollisionType.Player_Bullet.rawValue | CollisionType.Player.rawValue
         self.physicsBody!.contactTestBitMask = CollisionType.Player_Bullet.rawValue | CollisionType.Enemy_Bullet.rawValue
+        
+        //Sets zposition as "Wall" type
+        self.zPosition = ZPositions.Wall.rawValue
        }
     
     //A constructor that defines precise width and height bounds, for arena construction
@@ -57,7 +60,11 @@ class Wall: SKSpriteNode{
         self.physicsBody!.categoryBitMask = CollisionType.Wall.rawValue
         self.physicsBody!.collisionBitMask = CollisionType.Player_Bullet.rawValue | CollisionType.Player.rawValue
         self.physicsBody!.contactTestBitMask = CollisionType.Player_Bullet.rawValue | CollisionType.Enemy_Bullet.rawValue
+        
+        //Sets zposition as "Wall" type
+        self.zPosition = ZPositions.Wall.rawValue
         }
+    
     
     //Lets me delete walls! Will probably need this for room transitioning, I'd imagine. 
     func delete(){

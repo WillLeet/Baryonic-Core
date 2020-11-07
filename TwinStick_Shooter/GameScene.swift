@@ -31,8 +31,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var shooting_stick: Joystick!
     var viewController: GameViewController!
     var arena_bounds: CGRect!
-    var arena: Dictionary<String, Wall> = [:]
-    var next_arena: Dictionary<String, Wall> = [:]
+    var arena: Dictionary<String, SKSpriteNode> = [:]
+    var next_arena: Dictionary<String, SKSpriteNode> = [:]
     //var arena_holder: Dictionary<String, Wall> = [:]
     var enemy_count: Int = 0
     var current_enemies: Dictionary<Int, Enemy> = [:]
@@ -46,7 +46,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var safety_off: Bool = true
     var danger: Int = 10
     var spawner: Spawner!
-    var current_spawns: Dictionary<Int, [String]> = [5: ["Enemy Triangulator"], 3: ["Enemy Flakker"], 2: ["Enemy Skirmisher"], 1: ["Basic Enemy"]]
+    var current_spawns: Dictionary<Int, [String]> = [4: ["Enemy Triangulator"], 3: ["Enemy Flakker"], 2: ["Enemy Skirmisher"], 1: ["Basic Enemy"]]
     
     
     
@@ -286,14 +286,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     //Builds an arena around a given centerpoint.
      //This entire function is a horrifying mess of fractions and madness.
-     //I refuse to comment it. Just trust that it works.
-     func construct_arena(room: Room, centerx: CGFloat, centery: CGFloat, opengates: Bool) ->  Dictionary<String, Wall> {
-         var arena_dict: Dictionary<String, Wall> = [:]
+     //I've commented the general gist of it, but insanity lieth within the minutia
+     func construct_arena(room: Room, centerx: CGFloat, centery: CGFloat, opengates: Bool) ->  Dictionary<String, SKSpriteNode> {
+         var arena_dict: Dictionary<String, SKSpriteNode> = [:]
          var ne_corner: Wall
          var nw_corner: Wall
          var se_corner: Wall
          var sw_corner: Wall
          
+        //Builds room background
+        let background = SKSpriteNode(imageNamed: "Simple Background 3")
+        self.addChild(background)
+        background.size = CGSize(width: 5.5*self.view!.bounds.width/10, height: self.view!.bounds.height)
+        background.position = CGPoint(x: centerx,y: centery)
+        background.zPosition = ZPositions.Background.rawValue
+        arena_dict["background"] = background
+        
          //Builds north wall
          if(room.north == nil){
              let north_wall = Wall(sprite: "Full Wall", width: 5.5*self.view!.bounds.width/10 - 2*self.view!.bounds.width/40 - 3*self.view!.bounds.width/660, height: self.view!.bounds.height/50, game_world: self)
@@ -723,6 +731,16 @@ enum CollisionType : UInt32 {
     case Blank = 0x40
 }
 
+enum ZPositions: CGFloat {
+    case Background = -1
+    case Enemy = 0
+    case Player = 1
+    case Bullet = 2
+    case Blank = 3
+    case Wall = 4
+
+    
+}
 
 
 //Old, outdated code I feel too senitmental and/or paranoid to delete

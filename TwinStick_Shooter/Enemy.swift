@@ -59,6 +59,9 @@ class Enemy: SKSpriteNode{
         self.physicsBody!.contactTestBitMask = CollisionType.Player_Bullet.rawValue
         self.alpha = 0.0
         game_scene.addChild(self)
+        
+        //Sets zposition as "Enemy" type
+        self.zPosition = ZPositions.Enemy.rawValue
        }
     
     //Triggered when damaged. Pretty self-explanatory.

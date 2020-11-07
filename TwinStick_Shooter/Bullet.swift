@@ -47,6 +47,10 @@ class Bullet: SKSpriteNode{
             self.physicsBody!.contactTestBitMask = CollisionType.Player.rawValue | CollisionType.Wall.rawValue
             | CollisionType.Blank.rawValue
         }
+        
+        //Sets zposition as "Bullet" type
+        self.zPosition = ZPositions.Bullet.rawValue
+        
     }
     
     func impact(){
