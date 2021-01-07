@@ -20,6 +20,7 @@ class Room{
     var seen: Bool = false
     var visited: Bool = false
     var playerIn: Bool = false
+    var items: [SKSpriteNode?] = [nil, nil, nil, nil]
     init() { }
 }
 
@@ -524,12 +525,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //This gives the impression that the ship has moved, whilst keeping the actual bounds of the arena and game completely static!
         if(movingto == "N"){
             ycoords -= 1
-            next_arena = construct_arena(room: current_room.north!, centerx: self.view!.bounds.width/2, centery: 3*self.view!.bounds.height/2, opengates: true)
+            let centerx = self.view!.bounds.width/2
+            let centery = 3*self.view!.bounds.height/2
+            next_arena = construct_arena(room: current_room.north!, centerx: centerx, centery: centery, opengates: true)
             //Shifts both player and arenas accordingly
             arena_shift = SKAction.moveBy(x: 0.0, y: -self.view!.bounds.height, duration: 0.8)
             player_shift = SKAction.moveTo(y: self.arena_bounds.minY, duration: 0.8)
             current_room = current_room.north!
-            arena["north gate"]!.physicsBody!.categoryBitMask = CollisionType.Blank.rawValue
+            
+            //Attaches item shop to arena if next room is a shop
+            if(current_room.north?.status == "shop"){
+                
+            }
+            
+            
         }
         if(movingto == "S"){
             ycoords += 1
